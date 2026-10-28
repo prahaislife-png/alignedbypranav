@@ -35,14 +35,14 @@ export default function AboutPage() {
   return (
     <>
       <section aria-labelledby="page-title" className="relative overflow-hidden">
-        <div className="container-page grid gap-14 pt-8 pb-20 lg:grid-cols-12 lg:gap-10 lg:pt-12 lg:pb-28">
+        <div className="container-page grid gap-14 pt-8 pb-20 lg:grid-cols-12 lg:items-center lg:gap-10 lg:pt-12 lg:pb-28">
           <div className="lg:col-span-12">
             <Breadcrumbs items={[{ name: "About Pranav", path: "/about" }]} />
           </div>
           <div className="mx-auto w-full max-w-[22rem] sm:max-w-[26rem] lg:col-span-5 lg:max-w-none">
             <Portrait priority />
           </div>
-          <div className="lg:col-span-6 lg:col-start-7 lg:pt-8">
+          <div className="lg:col-span-6 lg:col-start-7">
             <p className="eyebrow">
               <span aria-hidden="true">§ </span>about
             </p>

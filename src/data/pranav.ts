@@ -20,10 +20,10 @@ export const pranav = {
    * AI-generated likeness.
    */
   portrait: {
-    src: "/images/portrait/pranav-vibhute.jpg",
-    alt: "Pranav Vibhute in a grey suit, smiling, in front of a bookshelf",
-    width: 353,
-    height: 578,
+    src: "/images/portrait/pranav-vibhute-2x3.jpg",
+    alt: "Pranav Vibhute in a grey suit and blue tie, smiling",
+    width: 1024,
+    height: 1536,
   } as ApprovedImage | null,
 
   /** Short biography (homepage, landing pages). DRAFT – written only from confirmed facts. */

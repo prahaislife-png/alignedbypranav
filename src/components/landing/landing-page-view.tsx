@@ -84,15 +84,18 @@ export function LandingPageView({ page, service, variantKey }: { page: LandingPa
 
       {/* 3 · Meet your consultant */}
       <section aria-labelledby="lp-consultant" className="border-b border-line py-16 lg:py-24">
-        <div className="container-page grid items-center gap-8 sm:grid-cols-[10rem_1fr] sm:gap-10 lg:grid-cols-[14rem_1fr] lg:gap-16">
-          <Portrait compact sizes="14rem" className="w-32 sm:w-full" />
-          <div>
+        {/* Phones: photo beside the name, bio below. Wider: photo beside both. */}
+        <div className="container-page grid grid-cols-[6.5rem_1fr] items-center gap-x-5 gap-y-6 sm:grid-cols-[10rem_1fr] sm:gap-x-10 sm:gap-y-5 lg:grid-cols-[14rem_1fr] lg:gap-x-16">
+          <Portrait compact sizes="(min-width: 1024px) 14rem, (min-width: 640px) 10rem, 6.5rem" className="sm:row-span-2" />
+          <div className="sm:self-end">
             <p className="eyebrow"><span aria-hidden="true">§ </span>meet your consultant</p>
             <h2 id="lp-consultant" className="display-md mt-3">
               {pranav.name}
             </h2>
             <p className="mt-2 font-mono text-[0.8125rem] text-madder lowercase">{pranav.title}</p>
-            <p className="mt-5 max-w-2xl text-muted">{pranav.shortBio}</p>
+          </div>
+          <div className="col-span-2 sm:col-span-1 sm:col-start-2 sm:self-start">
+            <p className="max-w-2xl text-muted">{pranav.shortBio}</p>
             <ArrowLink href="/about" className="mt-6">
               About Pranav
             </ArrowLink>

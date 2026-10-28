@@ -22,7 +22,12 @@ export function Portrait({
   const photo = pranav.portrait;
   return (
     <figure className={cn("relative", className)}>
-      <div className="relative isolate aspect-[4/5] w-full overflow-hidden bg-night">
+      {/* A photograph is shown whole, at its own proportions; thumbnails and the
+          placeholder use a 4:5 head-and-shoulders frame. */}
+      <div
+        className={cn("relative isolate w-full overflow-hidden bg-night", !(photo && !compact) && "aspect-[4/5]")}
+        style={photo && !compact ? { aspectRatio: `${photo.width} / ${photo.height}` } : undefined}
+      >
         {photo ? (
           <Image
             src={photo.src}
@@ -31,7 +36,7 @@ export function Portrait({
             height={photo.height}
             priority={priority}
             sizes={sizes}
-            className="h-full w-full object-cover object-[50%_10%]"
+            className="h-full w-full object-cover object-[50%_8%]"
           />
         ) : (
           <div role="img" aria-label="Portrait of Pranav Vibhute – photograph to be added" className="on-dark relative h-full w-full">
