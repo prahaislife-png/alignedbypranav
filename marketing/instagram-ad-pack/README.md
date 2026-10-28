@@ -5,14 +5,15 @@ an organic posting plan, and the campaign setup that turns ad spend into **real 
 
 | File / folder | What it is |
 |---|---|
-| `00-preview/` | Contact sheets of all creatives, for a quick look |
-| `01-feed-ads/` | 14 feed ads, 1080×1350 (4:5): two versions per service, **A = light**, **B = dark** |
+| `00-preview/` | Contact sheets of all creatives (feed, stories, carousels, highlights), for a quick look |
+| `01-feed-ads/` | 14 feed ads, 1080×1350 (4:5): two versions per service. **A = light** (the service as a specimen sheet), **B = dark** (Pranav’s photo + the service) |
 | `02-story-reel-ads/` | 7 Stories/Reels ads, 1080×1920 (9:16), bottom area kept clear for Instagram’s button |
 | `03-carousel-launch/` | 6-slide “Introducing Aligned by Pranav” carousel (first post, also usable as an ad) |
 | `04-carousel-signature/` | 6-slide educational carousel: what a graphologist looks at in a signature |
 | `05-carousel-logo/` | 6-slide educational carousel: four ways to look again at your logo |
 | `06-quote-posts/` | 3 quote posts |
-| `07-highlight-covers/` | 8 Story Highlight covers + a profile picture (alignment mark) |
+| `07-highlight-covers/` | 8 Story Highlight covers (“about” uses Pranav’s photo) + two profile pictures: `profile-picture.png` (Pranav’s photo, recommended) and `profile-picture-mark.png` (handwritten “a” logo) |
+| `_generator/` | The script that renders every image from the website’s fonts, illustrations and photo |
 | [`AD_COPY.md`](AD_COPY.md) | Primary text, headlines, CTAs, WhatsApp messages and links for every ad |
 | [`ORGANIC_PLAN.md`](ORGANIC_PLAN.md) | 4-week posting calendar, captions, hashtags, Stories and 7 Reel scripts |
 
@@ -34,18 +35,18 @@ much as the creatives.
 - **One service per ad.** “Signature analysis” is clear enough to stop the scroll; “seven alignment services” is too vague to act on.
 - **Message match.** Each ad’s headline repeats on its landing page, and the WhatsApp message names the service, so nobody has to explain why they’re writing.
 - **Low-risk ask.** Every CTA invites a question (“ask about the process and starting price”), never a purchase. That is the lowest-friction first step for a new, premium service.
-- **A real person.** Pranav’s name is on every creative. Adding his photo or video (Reels, section 7) is the biggest upgrade you can make.
-- **Premium, calm design.** Most of the feed shouts; these don’t. Two versions (light/dark) let Meta find out which stops more people.
+- **A real person.** Pranav’s name is on every creative and his photo is on every B ad. People buy a consultation from a person, not a logo. Video of him (Reels, section 7) is the next upgrade.
+- **Premium, distinctive design.** The same graphologist’s-worksheet look as the website: key words written by pen, specimen sheets, red-pen notes. Most of the feed shouts; these don’t. The two versions (illustration vs. face) let Meta find out which stops more people.
 - **Policy-safe by design.** No outcome promises, no “you are…” statements, no fake urgency. That avoids ad rejections and account restrictions, which kill campaigns faster than weak creative.
 
 ## 3. Before you spend anything (one-time setup)
 
-- [ ] Website live on your domain with `NEXT_PUBLIC_WHATSAPP_NUMBER` set (see the main README).
+- [x] Website live (https://alignedbypranav.vercel.app, WhatsApp +49 1512 5937315 connected). Move to your own domain when ready.
 - [ ] Instagram is a **Professional (Business) account**, linked to a **Facebook Page**.
 - [ ] **WhatsApp Business app** installed on the number Pranav will answer from, and linked to the Page
       (Meta Business Suite → Settings → WhatsApp accounts). Required for click-to-WhatsApp ads.
 - [ ] WhatsApp Business profile complete: name “Aligned by Pranav”, profile picture
-      (`07-highlight-covers/profile-picture.png` or Pranav’s photo), description, website link.
+      (`07-highlight-covers/profile-picture.png`, Pranav’s photo), description, website link.
 - [ ] Greeting and away messages switched on (wording in section 6).
 - [ ] **Meta Pixel** created and `NEXT_PUBLIC_META_PIXEL_ID` set; **domain verified** in Business Settings.
 - [ ] Instagram bio and highlights set up (section 7).
@@ -125,7 +126,7 @@ conversation. The real numbers come from your lead sheet.
 
 **Rules**
 1. An ad that has spent **3× your target** without a single conversation or Contact → pause it.
-2. Between A (light) and B (dark), keep whichever has the **lower cost per conversation** after ~7 days, not the higher click-through rate.
+2. Between A (illustration) and B (Pranav’s photo), keep whichever has the **lower cost per conversation** after ~7 days, not the higher click-through rate.
 3. Judge routes by **cost per qualified enquiry** from the lead sheet, not by Ads Manager alone.
 4. If people tap but rarely message: shorten the prefilled message and check the WhatsApp number on mobile.
 5. If they message but rarely book: the problem is in the chat (speed, clarity of price/process), not the ad.
@@ -189,11 +190,11 @@ with confirmed details only.
 
 ## 9. Editing or adding creatives
 
-- **Canva:** create at 1080×1350 (feed) or 1080×1920 (stories). Fonts **Cormorant Garamond** (headlines) and
-  **Inter** (small text), both free in Canva. Colours: ivory `#F8F5EE`, plum `#332B40`, antique gold `#A88A62`
-  (text on ivory: `#77603E`), sage `#6D7867`, parchment `#EDE5D9`. Keep headlines to 10 words or fewer and
-  one CTA per image.
-- **Photos of Pranav:** once you have approved photos or videos, a version of the feed ad with his portrait in the
-  arch is likely to outperform the illustrations. Ask Claude to produce it.
-- **Regenerating this pack:** the images were rendered from the website’s own illustrations and fonts. Ask Claude
-  to regenerate them with new headlines, prices once confirmed, or Pranav’s photo.
+- **Canva:** create at 1080×1350 (feed) or 1080×1920 (stories). Upload the website fonts from `src/fonts/`
+  (Canva → Brand → Fonts): **BluuNext Bold** for headlines, **Apfel Grotezk** for small text, **Fragment Mono** for
+  lowercase notes like “§ consultation 01”. Colours: paper `#F3F1EB`, ink `#221B2B`, red pen `#A3352B`,
+  night `#211B29`, plum `#332B40`, gold `#A88A62` / light gold `#D1BC98`, rule lines `#CFC8BA`.
+  Keep headlines to 10 words or fewer and one CTA per image.
+- **Regenerating this pack:** every image is rendered by `_generator/generate.js` from the website’s own fonts,
+  illustrations and Pranav’s photo (`node marketing/instagram-ad-pack/_generator/generate.js . marketing/instagram-ad-pack`,
+  needs Playwright). Ask Claude to change headlines, add prices once confirmed, or add new formats.
