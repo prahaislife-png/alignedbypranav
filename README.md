@@ -246,4 +246,5 @@ third-party service, add its domain to the Content Security Policy there.
 - [`docs/CONVERSION_MEASUREMENT.md`](docs/CONVERSION_MEASUREMENT.md): funnel definitions, analytics setup, lead tracking
 - [`docs/lead-tracking-template.csv`](docs/lead-tracking-template.csv): manual enquiry tracking sheet
 - [`FUTURE_SUPABASE_PLAN.md`](FUTURE_SUPABASE_PLAN.md): when (and how) to add a database later
+- [`marketing/instagram-ad-pack/`](marketing/instagram-ad-pack/README.md): Instagram/Facebook creatives, ad copy, campaign setup and organic plan
 - `AGENTS.md`: notes for AI coding assistants working on this repository
