@@ -31,7 +31,7 @@ export function Portrait({
             height={photo.height}
             priority={priority}
             sizes={sizes}
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover object-[50%_10%]"
           />
         ) : (
           <div role="img" aria-label="Portrait of Pranav Vibhute – photograph to be added" className="on-dark relative h-full w-full">
@@ -55,6 +55,12 @@ export function Portrait({
           </div>
         )}
       </div>
+      {photo && !compact && (
+        <figcaption className="note mt-2 flex justify-between gap-4">
+          <span className="text-madder">fig. — portrait</span>
+          <span className="lowercase">{pranav.name}</span>
+        </figcaption>
+      )}
     </figure>
   );
 }

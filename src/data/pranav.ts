@@ -19,7 +19,12 @@ export const pranav = {
    * Until then an abstract monogram placeholder is shown. Never use an
    * AI-generated likeness.
    */
-  portrait: null as ApprovedImage | null,
+  portrait: {
+    src: "/images/portrait/pranav-vibhute.jpg",
+    alt: "Pranav Vibhute in a grey suit, smiling, in front of a bookshelf",
+    width: 353,
+    height: 578,
+  } as ApprovedImage | null,
 
   /** Short biography (homepage, landing pages). DRAFT – written only from confirmed facts. */
   shortBio:
