@@ -34,11 +34,12 @@ const securityHeaders = [
   { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
 ];
 
-// A production deployment without a valid WhatsApp number still works (buttons
-// fall back to the Contact page), but it should never go unnoticed.
-const whatsappDigits = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "").replace(/[\s\-().+]/g, "").replace(/^00/, "");
-if (isProductionDeployment && !/^[1-9]\d{7,14}$/.test(whatsappDigits)) {
-  console.warn("\n⚠ NEXT_PUBLIC_WHATSAPP_NUMBER is missing or invalid – WhatsApp buttons will link to /contact.\n");
+// The WhatsApp number defaults to the one in src/config/site.ts. An invalid
+// override in the environment would send every button to the Contact page.
+const whatsappOverride = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.trim();
+const whatsappDigits = (whatsappOverride ?? "").replace(/[\s\-().+]/g, "").replace(/^00/, "");
+if (isProductionDeployment && whatsappOverride && !/^[1-9]\d{7,14}$/.test(whatsappDigits)) {
+  console.warn("\n⚠ NEXT_PUBLIC_WHATSAPP_NUMBER is invalid – WhatsApp buttons will link to /contact.\n");
 }
 
 if (!isProductionDeployment) {

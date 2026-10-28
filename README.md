@@ -67,6 +67,7 @@ commit, push to GitHub, and Vercel redeploys automatically (about a minute).
 | **Homepage headings and text**     | `src/data/home.ts`                       | Wrap words in `*asterisks*` to set them in italic gold. |
 | Featured services on homepage      | `src/data/home.ts` → `featuredServiceIds` | Any two (or more) service ids. |
 | General FAQ                        | `src/data/faqs.ts`                        | `homepageFaqCount` sets how many show on the homepage. |
+| **Free Watch Specimen Check**      | `src/data/watch-check.ts`                 | Questions (replace with Pranav’s own checklist), the free and paid steps, their prices (`null` → “Price shared on WhatsApp”) and all copy. The tool records only; never add interpretations here. |
 | **Landing-page headings and CTAs** | `src/data/landing-pages.ts`               | `copy.headline`, `copy.description`, `copy.ctaLabel`, `copy.heroVisual`. |
 | **CTA text elsewhere**             | `src/data/home.ts` (homepage), `src/data/landing-pages.ts` (ads). Prefilled WhatsApp messages: `src/lib/whatsapp.ts`. | |
 | **Approved testimonials**          | `src/data/testimonials.ts` → `testimonials` | Real, consented quotes only. `consentRecorded: true` is required or the quote is never shown. The section is hidden while the list is empty. |
@@ -223,7 +224,8 @@ docs/                     Measurement guide, lead-tracking template, prelaunch c
 ```
 
 Server Components are the default; client-side JavaScript is limited to the consent banner, analytics, the
-mobile menu, the services dropdown, the currency selector and the sticky WhatsApp bar. Motion is pure CSS, with
+mobile menu, the services dropdown, the currency selector, the sticky WhatsApp bar and the free Watch Specimen Check
+(which processes photos on the visitor’s device only). Motion is pure CSS, with
 no animation library: handwriting is written on with `stroke-dashoffset` (a pen nib follows it via `offset-path`),
 and illustrations, rules and headings ink in as they scroll into view using scroll-driven animations
 (`animation-timeline: view()`; browsers without support simply show the finished state). All of it switches off

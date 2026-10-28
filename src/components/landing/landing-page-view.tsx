@@ -12,6 +12,8 @@ import { PricingPanel } from "@/components/services/pricing-panel";
 import { FinalCta } from "@/components/home/final-cta";
 import { StickyWhatsAppBar } from "@/components/whatsapp/sticky-whatsapp-bar";
 import { WhatsAppCta, resolveWhatsApp } from "@/components/whatsapp/whatsapp-cta";
+import { WatchCheckTeaser } from "@/components/tools/watch-check/watch-check-teaser";
+import { watchCheck } from "@/data/watch-check";
 
 /**
  * Advertising landing page. One lightweight template, seven services.
@@ -81,6 +83,9 @@ export function LandingPageView({ page, service, variantKey }: { page: LandingPa
           </ul>
         </div>
       </section>
+
+      {/* Free tool, for the wristwatch campaign only */}
+      {service.id === watchCheck.serviceId && <WatchCheckTeaser />}
 
       {/* 3 · Meet your consultant */}
       <section aria-labelledby="lp-consultant" className="border-b border-line py-16 lg:py-24">

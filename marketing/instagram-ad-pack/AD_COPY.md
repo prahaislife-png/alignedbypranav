@@ -205,6 +205,43 @@ the README (section 4) in Ads Manager rather than typing UTMs into each link.
 
 ---
 
+## 08 · Free Watch Specimen Check (lead magnet)
+
+A free tool rather than a consultation: the ad sends people to the website, where they photograph their watch and get
+a specimen sheet in two minutes. The sheet then leads to a free first look from Pranav on WhatsApp, and from there to
+the paid Watch Alignment Report. Run it as **Route B only** (website), objective *Leads* or *Traffic → Landing page
+views*. The site records `tool_complete` (sheet created) and `whatsapp_click` with `cta_placement`
+`watch_check_first_look`, so you can see how many sheets turn into conversations.
+
+**Creatives:** `08-free-watch-check/watch-check-feed.png` (Feed), `08-free-watch-check/watch-check-story.png` (Story)
+
+**Primary text: Short**
+> Put the watch you wear on a graphologist’s specimen sheet. Free, two minutes, and your photo never leaves your
+> phone. Then send it to Pranav Vibhute for a personal first look.
+
+**Primary text: Story**
+> When did you last really look at your watch?
+>
+> Take a photo and the free Watch Specimen Check records its colours, shape and details on a specimen sheet you can
+> keep or share. It all happens on your phone: nothing is uploaded.
+>
+> If you like, send the sheet to Pranav on WhatsApp for a free first look: three personal observations.
+>
+> The check records what can be seen; it does not assess personality or predict anything.
+
+| Field | Text |
+|---|---|
+| Headline | Free Watch Specimen Check |
+| Headline (alt) | Put your watch on the specimen sheet |
+| Description | Free · two minutes · nothing uploaded |
+| CTA button | Learn more |
+| URL | `https://YOUR-DOMAIN/tools/watch-check` |
+
+> Keep the wording observational. Never “find out what your watch says about you” or similar: Meta rejects ads that
+> imply personal attributes, and the tool does not make such claims.
+
+---
+
 ## Brand / launch ad (optional)
 
 Use the **launch carousel** (`03-carousel-launch/`) as a carousel ad to a broad audience, or as a retargeting ad to

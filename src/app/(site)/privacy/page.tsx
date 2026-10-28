@@ -74,7 +74,20 @@ export default function PrivacyPage() {
         you ask us to delete it sooner or the law requires us to keep it.
       </p>
 
-      <h2>4. Children</h2>
+      <h2 id="watch-check">4. The free watch check</h2>
+      <p>
+        The <Link href="/tools/watch-check">Watch Specimen Check</Link> works entirely in your browser. The photo you choose is
+        opened, framed and measured on your own device and is never uploaded to, or stored by, this website or any other
+        service. The colours and answers you record exist only on your screen and in the specimen sheet image you create; they
+        are discarded when you leave or reload the page.
+      </p>
+      <p>
+        If you save or share the specimen sheet, or send it to Pranav on WhatsApp, you decide where it goes, and section 3
+        applies to anything you send. If you allow analytics, we may record only that the check was started, completed or
+        saved, never the photo, the colours or your answers.
+      </p>
+
+      <h2>5. Children</h2>
       <p>
         This website is intended for adults. Drawing analysis may involve a child’s drawing shared by a parent or legal
         guardian. We will only consider a child’s drawing with the consent of the parent or guardian, and we ask that you remove
@@ -82,7 +95,7 @@ export default function PrivacyPage() {
         personal data for tracking, profiling or advertising.
       </p>
 
-      <h2>5. Why we use personal data (legal bases)</h2>
+      <h2>6. Why we use personal data (legal bases)</h2>
       <ul>
         <li>To respond to your enquiry and provide a consultation – your request and our agreement with you (GDPR Art. 6(1)(b)); your consent where required under the DPDP Act.</li>
         <li>To run and secure the website – our legitimate interests (GDPR Art. 6(1)(f)) and legitimate uses under the DPDP Act.</li>
@@ -90,7 +103,7 @@ export default function PrivacyPage() {
         <li>To meet legal, tax and accounting obligations – legal obligation.</li>
       </ul>
 
-      <h2 id="cookies">6. Cookies and similar technologies</h2>
+      <h2 id="cookies">7. Cookies and similar technologies</h2>
       <p>
         We only use storage that is strictly necessary unless you choose otherwise. Optional tools load only after you accept
         them, and only if they are enabled for this website. You can change your choice at any time using{" "}
@@ -145,7 +158,7 @@ export default function PrivacyPage() {
         material.
       </p>
 
-      <h2>7. Who we share data with</h2>
+      <h2>8. Who we share data with</h2>
       <p>
         Service providers who help us run the website and communicate with you: Vercel (hosting), WhatsApp/Meta (messaging),
         and, only with your consent, Google (analytics) and Meta (advertising measurement). Some of these providers process
@@ -154,7 +167,7 @@ export default function PrivacyPage() {
         sell personal data.
       </p>
 
-      <h2>8. Your rights</h2>
+      <h2>9. Your rights</h2>
       <p>Depending on where you live, you may have the right to:</p>
       <ul>
         <li>access the personal data we hold about you and receive a summary of how it is used;</li>
@@ -173,13 +186,13 @@ export default function PrivacyPage() {
         <TBC value={null} label="name or role of the grievance contact" />. We will respond within the time required by law.
       </p>
 
-      <h2>9. Security</h2>
+      <h2>10. Security</h2>
       <p>
         The website is served over HTTPS with security headers. Because enquiries take place on WhatsApp, please keep your
         device secure and avoid sharing more personal information than needed.
       </p>
 
-      <h2>10. Changes to this policy</h2>
+      <h2>11. Changes to this policy</h2>
       <p>
         We may update this policy. The “Last updated” date at the top shows when it last changed. Significant changes will be
         highlighted on this page.

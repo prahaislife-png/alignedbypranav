@@ -16,6 +16,8 @@ import {
 import { FinalCta } from "@/components/home/final-cta";
 import { StickyWhatsAppBar } from "@/components/whatsapp/sticky-whatsapp-bar";
 import { resolveWhatsApp } from "@/components/whatsapp/whatsapp-cta";
+import { WatchCheckTeaser } from "@/components/tools/watch-check/watch-check-teaser";
+import { watchCheck } from "@/data/watch-check";
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
@@ -42,6 +44,7 @@ export default async function ServicePage({ params }: PageProps<"/services/[slug
   return (
     <>
       <ServiceHero service={service} />
+      {service.id === watchCheck.serviceId && <WatchCheckTeaser className="bg-paper-2" />}
       <ServiceIntro service={service} />
       <ServiceExplores service={service} />
       <ServiceAudienceAndProcess service={service} />

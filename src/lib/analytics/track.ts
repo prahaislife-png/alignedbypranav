@@ -19,7 +19,15 @@ import { loadGa4, loadMetaPixel } from "./loaders";
  * occurred. See docs/CONVERSION_MEASUREMENT.md.
  */
 
-export type AnalyticsEventName = "service_view" | "landing_page_view" | "whatsapp_click" | "pricing_view";
+export type AnalyticsEventName =
+  | "service_view"
+  | "landing_page_view"
+  | "whatsapp_click"
+  | "pricing_view"
+  // Free tools: steps only. Never the photo, colours or answers.
+  | "tool_start"
+  | "tool_complete"
+  | "tool_save";
 
 export type CtaPlacement =
   | "header"
@@ -36,7 +44,9 @@ export type CtaPlacement =
   | "landing_hero"
   | "landing_details"
   | "landing_final"
-  | "about";
+  | "about"
+  | "watch_check_first_look"
+  | "watch_check_report";
 
 export interface AnalyticsEventProps {
   service_id?: string;
@@ -44,6 +54,9 @@ export interface AnalyticsEventProps {
   landing_variant?: string;
   cta_placement?: CtaPlacement;
   price_available?: boolean;
+  tool?: "watch_check";
+  /** How a tool result was kept: the share sheet or a file download. */
+  save_method?: "share" | "download";
 }
 
 type Gtag = (...args: unknown[]) => void;

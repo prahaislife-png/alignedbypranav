@@ -355,6 +355,39 @@ const profileMark = { w: 1080, h: 1080, html: `
     </svg>
   </div>` };
 
+
+// ------------------------------------------------------------------ free watch check (tool ads)
+// The example sheet is a real output of the tool (rendered from a sample watch photo).
+const EXAMPLE = `data:image/png;base64,${b64(path.join(HERE, "example-sheet.png"))}`;
+const exampleSheet = (w, rotate) => `<div style="width:${w}px;height:${w * 1.25}px;background:url(${EXAMPLE}) center/cover;border:1.5px solid ${C.ink};box-shadow:14px 14px 0 ${C.ink};transform:rotate(${rotate}deg)"></div>`;
+const toolPoints = `<p class="note" style="font-size:24px;color:${C.muted}">free · two minutes · your photo stays on your phone</p>`;
+
+const toolFeed = { w: 1080, h: 1350, html: `
+  <div class="canvas" style="width:1080px;height:1350px">
+    <div style="position:absolute;left:72px;right:72px;top:64px;display:flex;justify-content:space-between;align-items:flex-end">
+      ${wordmark(70)}
+      ${note("free tool", 24, "margin-bottom:14px")}
+    </div>
+    <h1 class="d" style="position:absolute;left:72px;right:72px;top:200px;font-size:96px;line-height:1.02">Put your watch on the <span class="i">specimen sheet.</span></h1>
+    <div style="position:absolute;left:72px;top:520px;width:400px;display:flex;flex-direction:column;gap:34px">
+      <p class="muted" style="font-size:31px;line-height:1.42">Its colours, shape and details, recorded in two minutes. Then a free first look from Pranav.</p>
+      <p class="note" style="font-size:23px;line-height:1.7;color:${C.muted}">free<br/>two minutes<br/>your photo stays on your phone</p>
+    </div>
+    <div style="position:absolute;right:72px;top:500px">${exampleSheet(470, 3)}</div>
+    <div style="position:absolute;left:72px;bottom:72px">${btn("Try the free watch check", 30).replace(/<svg[\s\S]*?<\/svg>/, "")}</div>
+  </div>` };
+
+const toolStory = { w: 1080, h: 1920, html: `
+  <div class="canvas" style="width:1080px;height:1920px">
+    <div style="position:absolute;left:0;right:0;top:250px;display:flex;justify-content:center">${wordmark(84)}</div>
+    <div style="position:absolute;left:90px;right:90px;top:420px;text-align:center">
+      ${note("free tool · watch specimen check", 26)}
+      <h1 class="d" style="font-size:92px;line-height:1.03;margin-top:24px">Put your watch on the <span class="i">specimen sheet.</span></h1>
+    </div>
+    <div style="position:absolute;left:50%;top:760px;transform:translateX(-50%)">${exampleSheet(560, -2)}</div>
+    <div style="position:absolute;left:0;right:0;top:1500px;text-align:center">${toolPoints}</div>
+  </div>` };
+
 // ------------------------------------------------------------------ render
 const jobs = [];
 services.forEach((s, i) => {
@@ -370,6 +403,8 @@ quotes.forEach((j, i) => jobs.push([`06-quote-posts/quote-${i + 1}.png`, j]));
 highlights.forEach(([ill, label], i) => jobs.push([`07-highlight-covers/${i + 1}-${label}.png`, highlight(ill, label)]));
 jobs.push([`07-highlight-covers/profile-picture.png`, profilePhoto]);
 jobs.push([`07-highlight-covers/profile-picture-mark.png`, profileMark]);
+jobs.push([`08-free-watch-check/watch-check-feed.png`, toolFeed]);
+jobs.push([`08-free-watch-check/watch-check-story.png`, toolStory]);
 
 (async () => {
   const browser = await chromium.launch();

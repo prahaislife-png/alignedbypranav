@@ -129,6 +129,14 @@ Pranav’s own writing or a sample made for the video.
   conversation. Drawing analysis is reflective, not diagnostic.” + end line.
 - Show only drawings made for the video. Never real children or their work.
 
+**8 · Put your watch on the specimen sheet (25s, screen recording)**
+- Hook text: *“Free, 30 seconds: your watch on a specimen sheet.”*
+- Screen-record the tool on a phone: take the photo, line up the dial, tap the strap, the sheet appears.
+- Pranav to camera: “It records what’s there: colours, shape, details. If you’d like my first look, send it to me on
+  WhatsApp.” End card: *link in bio → free watch check*.
+- Caption: *Put the watch you wear on the specimen sheet. Free, two minutes, and your photo never leaves your phone.
+  Link in bio. #watches #wristwatch #watchoftheday #graphology #alignedbypranav*
+
 ---
 
 ## What to measure weekly

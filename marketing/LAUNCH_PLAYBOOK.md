@@ -96,7 +96,7 @@ non-followers first ([Buffer](https://buffer.com/resources/instagram-algorithms/
 - **Make posts people send to someone.** “Look at your signature: does it rise or fall?” gets forwarded.
   A plain “Book now” does not. The signature and logo carousels are built for this.
 - **Reels with Pranav on camera, 20–40 seconds.** Hook in the first second, one idea, end with
-  “Message me on WhatsApp”. Seven scripts are in [`ORGANIC_PLAN.md`](instagram-ad-pack/ORGANIC_PLAN.md).
+  “Message me on WhatsApp”. Eight scripts are in [`ORGANIC_PLAN.md`](instagram-ad-pack/ORGANIC_PLAN.md).
 - **Cadence:** 3 feed posts or Reels a week plus daily Stories (polls like “Which signature is yours?” and
   behind-the-scenes). Consistency beats volume.
 - **Turn every client question into a post.** Section 3’s notes are the content calendar.
@@ -117,6 +117,29 @@ Only start once the profile has at least 6–9 posts and Pranav can answer Whats
   % who book → **cost per booking**. Kill an ad that spends 3× your target cost per booking with no booking.
   Double the budget (by 20–30% every few days, not at once) on whatever books below target.
 - **Then** add Route B (landing page → WhatsApp) for people who want to read before writing.
+
+## 5b. The free watch check: a funnel for watch clients
+
+The website has a free tool, the **Watch Specimen Check** (`/tools/watch-check`). It gives something real away for
+free and leads, step by step, to the paid report:
+
+| Step | What happens | Price |
+|---|---|---|
+| 1 · Specimen check | The visitor photographs their watch; the site records colours, shape and details on a specimen sheet (on their phone, nothing uploaded) | Free |
+| 2 · First look | They send the sheet on WhatsApp; Pranav replies personally with three observations | Free, limited each week |
+| 3 · Watch Alignment Report | Pranav’s full written review and considerations for their next watch | Paid (Pranav sets the price) |
+| 4 · Report and consultation | The report plus a conversation, including watches they are considering | Paid |
+
+How to run it:
+- **Promote it** with the `08-free-watch-check` creatives and Reel 8 (organic plan). People share the sheet to their
+  Stories, which brings new visitors for free.
+- **Answer first looks quickly** with a quick reply such as `/firstlook`: three short observations, then
+  “If you’d like the full Watch Alignment Report, I can tell you how it works and the price.”
+- **Measure** sheets created (`tool_complete`) → first-look taps (`whatsapp_click`, placement
+  `watch_check_first_look`) → reports sold (lead sheet).
+- **Before scaling:** Pranav should confirm his own checklist of watch details (it replaces the questions in
+  `src/data/watch-check.ts`), the report’s format and price, and how many free first looks he can answer each week.
+- **Naming:** never call it “Wristwatch Analysis”, which is another practitioner’s trademark.
 
 ## 6. WhatsApp is the shop counter
 

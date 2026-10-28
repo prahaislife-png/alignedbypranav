@@ -11,6 +11,7 @@ import { WhyPranav } from "@/components/home/why-pranav";
 import { RealExamples, Testimonials } from "@/components/home/proof-sections";
 import { FaqPreview } from "@/components/home/faq-preview";
 import { FinalCta } from "@/components/home/final-cta";
+import { WatchCheckTeaser } from "@/components/tools/watch-check/watch-check-teaser";
 
 export const metadata: Metadata = pageMetadata({
   title: `${site.name} · Signature, Handwriting & Alignment Consultations`,
@@ -24,6 +25,7 @@ export default function HomePage() {
     <>
       <HomeHero />
       <ServiceDiscovery />
+      <WatchCheckTeaser className="bg-paper-2" />
       <MeetPranav />
       <Philosophy />
       <HowItWorks />
