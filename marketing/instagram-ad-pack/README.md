@@ -5,6 +5,7 @@ an organic posting plan, and the campaign setup that turns ad spend into **real 
 
 | File / folder | What it is |
 |---|---|
+| `00-word-documents/` | **These guides as Word files** (how to run the ads, ad copy, organic plan, 90-day launch playbook) |
 | `00-preview/` | Contact sheets of all creatives (feed, stories, carousels, highlights), for a quick look |
 | `01-feed-ads/` | 14 feed ads, 1080×1350 (4:5): two versions per service. **A = light** (the service as a specimen sheet), **B = dark** (Pranav’s photo + the service) |
 | `02-story-reel-ads/` | 7 Stories/Reels ads, 1080×1920 (9:16), bottom area kept clear for Instagram’s button |
