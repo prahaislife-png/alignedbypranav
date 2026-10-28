@@ -1,4 +1,5 @@
 import type { ServiceId } from "@/types/content";
+import type { ToolAnswers, ToolOption, ToolQuestion, ToolTier } from "./tools";
 
 /**
  * WATCH SPECIMEN CHECK – free tool at /tools/watch-check
@@ -15,34 +16,9 @@ import type { ServiceId } from "@/types/content";
  * practitioner) and never add interpretations or outcome claims here.
  */
 
-export interface WatchOption {
-  value: string;
-  label: string;
-}
-
-export interface WatchQuestion {
-  id: string;
-  /** The question as asked in the tool. */
-  prompt: string;
-  /** Short label printed on the specimen sheet and in the WhatsApp message. */
-  label: string;
-  options: WatchOption[];
-  /** Allow several answers (e.g. extra features). */
-  multiple?: boolean;
-  hint?: string;
-}
-
-export interface WatchCheckTier {
-  id: "check" | "first-look" | "report" | "report-call";
-  name: string;
-  /** "Free" for free tiers; `null` price shows the safe fallback. */
-  free: boolean;
-  /** Confirmed price only. `null` → "Price shared on WhatsApp". */
-  priceINR: number | null;
-  priceEUR: number | null;
-  description: string;
-  points: string[];
-}
+export type WatchOption = ToolOption;
+export type WatchQuestion = ToolQuestion;
+export type WatchCheckTier = ToolTier & { id: "check" | "first-look" | "report" | "report-call" };
 
 export const watchCheck = {
   path: "/tools/watch-check",
@@ -273,4 +249,4 @@ export const watchCheck = {
   },
 };
 
-export type WatchAnswers = Partial<Record<string, string[]>>;
+export type WatchAnswers = ToolAnswers;

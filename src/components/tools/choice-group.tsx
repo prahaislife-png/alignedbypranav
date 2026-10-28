@@ -1,4 +1,4 @@
-import type { WatchQuestion } from "@/data/watch-check";
+import type { ToolQuestion } from "@/data/tools";
 import { cn } from "@/lib/cn";
 
 /** One question as a group of tappable choices (native radio buttons or checkboxes). */
@@ -7,7 +7,7 @@ export function ChoiceGroup({
   value,
   onChange,
 }: {
-  question: WatchQuestion;
+  question: ToolQuestion;
   value: string[];
   onChange: (next: string[]) => void;
 }) {

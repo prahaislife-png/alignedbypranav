@@ -46,7 +46,9 @@ export type CtaPlacement =
   | "landing_final"
   | "about"
   | "watch_check_first_look"
-  | "watch_check_report";
+  | "watch_check_report"
+  | "signature_check_first_look"
+  | "signature_check_report";
 
 export interface AnalyticsEventProps {
   service_id?: string;
@@ -54,9 +56,13 @@ export interface AnalyticsEventProps {
   landing_variant?: string;
   cta_placement?: CtaPlacement;
   price_available?: boolean;
-  tool?: "watch_check";
-  /** How a tool result was kept: the share sheet or a file download. */
-  save_method?: "share" | "download";
+  tool?: "watch_check" | "signature_check";
+  /** How a tool result was kept: the share sheet, a file download or printing. */
+  save_method?: "share" | "download" | "print";
+  /** Which file was kept, for tools that make more than one. */
+  sheet?: "specimen" | "share_safe" | "practice";
+  /** How the visitor gave their signature. */
+  input_method?: "draw" | "photo";
 }
 
 type Gtag = (...args: unknown[]) => void;

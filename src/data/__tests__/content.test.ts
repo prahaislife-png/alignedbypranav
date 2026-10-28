@@ -7,6 +7,8 @@ import { home } from "../home";
 import { pranav } from "../pranav";
 import sitemap from "@/app/sitemap";
 import { watchCheck } from "../watch-check";
+import { signatureCheck } from "../signature-check";
+import { freeTools, toolsHub } from "../free-tools";
 
 const REQUIRED_SLUGS = [
   "signature-handwriting-analysis",
@@ -94,20 +96,23 @@ describe("trust safeguards", () => {
       else if (Array.isArray(value)) value.forEach((v) => collect(v));
       else if (value && typeof value === "object") Object.entries(value).forEach(([k, v]) => collect(v, k));
     };
-    collect({ services, landingPages, generalFaqs, home, pranav, watchCheck });
+    collect({ services, landingPages, generalFaqs, home, pranav, watchCheck, signatureCheck, freeTools, toolsHub });
     for (const pattern of banned) {
       expect(strings.filter((text) => pattern.test(text))).toEqual([]);
     }
   });
 });
 
-describe("watch specimen check", () => {
+describe.each([
+  ["watch specimen check", watchCheck],
+  ["signature specimen check", signatureCheck],
+])("%s", (_, tool) => {
   it("never uses another practitioner's trademarked method name", () => {
-    expect(JSON.stringify(watchCheck)).not.toMatch(/wristwatch analysis/i);
+    expect(JSON.stringify(tool)).not.toMatch(/wristwatch analysis/i);
   });
 
-  it("never publishes an unconfirmed price for a paid tier", () => {
-    for (const tier of watchCheck.tiers) {
+  it("never publishes an unconfirmed price, and free tiers stay free", () => {
+    for (const tier of tool.tiers) {
       for (const price of [tier.priceINR, tier.priceEUR]) {
         expect(price === null || (Number.isFinite(price) && price > 0)).toBe(true);
       }
@@ -116,12 +121,24 @@ describe("watch specimen check", () => {
   });
 
   it("has unique question ids and option values", () => {
-    const ids = watchCheck.questions.map((q) => q.id);
+    const ids = tool.questions.map((q) => q.id);
     expect(new Set(ids).size).toBe(ids.length);
-    for (const q of watchCheck.questions) {
+    for (const q of tool.questions) {
       const values = q.options.map((o) => o.value);
       expect(new Set(values).size).toBe(values.length);
     }
+  });
+
+  it("is listed among the free tools with a matching service", () => {
+    const listed = freeTools.find((t) => t.path === tool.path);
+    expect(listed?.serviceId).toBe(tool.serviceId);
+    expect(services.some((s) => s.id === tool.serviceId)).toBe(true);
+  });
+});
+
+describe("signature specimen check", () => {
+  it("says it is not a forensic or authenticity check", () => {
+    expect(signatureCheck.disclaimer).toMatch(/not a forensic or authenticity check/);
   });
 });
 
@@ -130,6 +147,6 @@ describe("sitemap", () => {
     const urls = sitemap().map((entry) => new URL(entry.url).pathname);
     for (const slug of REQUIRED_SLUGS) expect(urls).toContain(`/services/${slug}`);
     expect(urls.some((u) => u.startsWith("/lp"))).toBe(false);
-    expect(urls).toContain(watchCheck.path);
+    for (const path of [toolsHub.path, watchCheck.path, signatureCheck.path]) expect(urls).toContain(path);
   });
 });

@@ -53,6 +53,20 @@ export const DEFAULT_FRAMING: Framing = { zoom: 1, x: 0, y: 0 };
 /** The dial guide's radius as a fraction of the viewfinder's side. */
 export const GUIDE_RADIUS = 0.4;
 
+/** The signature guide: a wide frame, as fractions of the viewfinder's side. */
+export const RECT_GUIDE = { width: 0.92, height: 0.46 } as const;
+
+/** The part of a framed square inside the signature guide. */
+export function cropToRectGuide(framed: HTMLCanvasElement): HTMLCanvasElement {
+  const w = Math.round(framed.width * RECT_GUIDE.width);
+  const h = Math.round(framed.height * RECT_GUIDE.height);
+  const canvas = document.createElement("canvas");
+  canvas.width = w;
+  canvas.height = h;
+  canvas.getContext("2d")?.drawImage(framed, (framed.width - w) / 2, (framed.height - h) / 2, w, h, 0, 0, w, h);
+  return canvas;
+}
+
 /** Keeps the photo covering the viewfinder: no empty edges. */
 export function clampFraming(photo: { width: number; height: number }, f: Framing): Framing {
   const zoom = Math.min(6, Math.max(1, f.zoom));

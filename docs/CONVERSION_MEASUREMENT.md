@@ -17,8 +17,9 @@ How to measure what the website and ad campaigns actually achieve, and the limit
 The website can measure only stages 2 and 3, and only for visitors who accept analytics. Expect the numbers in
 analytics tools to be lower than real traffic.
 
-The tool events never include the photo, the colours or the visitor's answers. The tool's WhatsApp buttons use
-`cta_placement` `watch_check_first_look` (free first look) and `watch_check_report` (paid report).
+The tool events never include the image, the measurements, the colours or the visitor's answers. The tools'
+WhatsApp buttons use `cta_placement` `watch_check_first_look` / `signature_check_first_look` (free first look) and
+`watch_check_report` / `signature_check_report` (paid consultation).
 
 **A `whatsapp_click` is not a lead, a conversation, a booking or a sale.** Many people tap the button and never
 send the message, or WhatsApp may not be installed on a desktop. Never report clicks as leads.
@@ -38,9 +39,9 @@ conversations started”) and in the lead-tracking sheet below.
 | `service_view` | A service page is viewed | `service_id` |
 | `pricing_view` | The consultation details / price panel scrolls into view | `service_id`, `landing_page_id`, `price_available` |
 | `whatsapp_click` | Any WhatsApp button is tapped | `service_id`, `landing_page_id`, `landing_variant`, `cta_placement` |
-| `tool_start` | A photo is opened in the free Watch Specimen Check | `tool` |
-| `tool_complete` | A specimen sheet is created | `tool`, `service_id` |
-| `tool_save` | The sheet is shared or saved | `tool`, `save_method` (`share` / `download`) |
+| `tool_start` | A free tool is started (a photo opened, or the first stroke of a signature) | `tool`, `input_method` (signature: `draw` / `photo`) |
+| `tool_complete` | A specimen sheet is created | `tool`, `service_id`, `input_method` |
+| `tool_save` | A sheet is saved, shared or printed | `tool`, `save_method` (`share` / `download` / `print`), `sheet` (signature: `specimen` / `share_safe` / `practice`) |
 
 All events also carry the visit’s UTM parameters (`utm_source`, `utm_medium`, `utm_campaign`, `utm_content`,
 `utm_term`) when present. No names, numbers, message text, signatures or drawings are ever sent.

@@ -535,3 +535,23 @@
 .legal-prose .table-wrap {
   overflow-x: auto;
 }
+
+/* Printing a tool sheet (e.g. the signature practice sheet): only that image prints. */
+@media print {
+  body[data-print-sheet] * {
+    visibility: hidden !important;
+  }
+  body[data-print-sheet] #print-sheet,
+  body[data-print-sheet] #print-sheet * {
+    visibility: visible !important;
+  }
+  body[data-print-sheet] #print-sheet {
+    display: block !important;
+    position: fixed;
+    inset: 0;
+  }
+  body[data-print-sheet] #print-sheet img {
+    width: 100%;
+    height: auto;
+  }
+}

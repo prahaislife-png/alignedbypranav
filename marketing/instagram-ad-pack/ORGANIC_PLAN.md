@@ -137,6 +137,20 @@ Pranav’s own writing or a sample made for the video.
 - Caption: *Put the watch you wear on the specimen sheet. Free, two minutes, and your photo never leaves your phone.
   Link in bio. #watches #wristwatch #watchoftheday #graphology #alignedbypranav*
 
+**9 · Your signature on the specimen sheet (30s, screen recording)**
+- Hook text: *“Sign here. Get two sheets free.”*
+- Screen-record the tool on a phone with a sample signature (“Your Name” or Pranav’s own, never a client’s): sign
+  with a finger, tap Done, the measurements appear, then the specimen sheet and the practice sheet.
+- Pranav to camera: “It measures what’s there: the slant, the baseline, how often you lift the pen. The practice
+  sheet is made from your own signature. If you’d like my first look, send the sheet to me on WhatsApp.”
+  End card: *link in bio → free signature check*.
+- Caption: *Your signature on a specimen sheet, plus a practice sheet made from it. Free, two minutes, nothing
+  uploaded. Link in bio. Share only the share-safe version. #signature #handwriting #graphology #alignedbypranav*
+
+**Stories for the signature check:** a poll (“Does your signature rise, fall or stay level?”), then a link sticker
+to the tool; reshare people’s **share-safe** sheets when they tag you (ask first); and a “practice sheet” Story
+showing a printed sheet with pen marks (Pranav’s own signature).
+
 ---
 
 ## What to measure weekly

@@ -242,6 +242,54 @@ views*. The site records `tool_complete` (sheet created) and `whatsapp_click` wi
 
 ---
 
+## 09 · Free Signature Specimen Check + practice sheet (lead magnet)
+
+The strongest free offer in the pack: everyone has a signature, and the tool gives two things to keep. People sign
+on screen (or photograph their signature on paper) and get a **specimen sheet** (slant, baseline, proportions and,
+when signed on screen, pen lifts, time and pace) plus a **personalised A4 practice sheet** made from their own
+signature. The sheet leads to a free first look from Pranav on WhatsApp, and from there to the paid Signature &
+Handwriting Analysis. Run it as **Route B only** (website), objective *Leads* or *Traffic → Landing page views*.
+The site records `tool_complete` (sheets created), `tool_save` and `whatsapp_click` with `cta_placement`
+`signature_check_first_look`.
+
+**Creatives:** `09-free-signature-check/signature-check-feed.png` (Feed), `09-free-signature-check/signature-check-story.png`
+(Story). The example sheets show “Your Name”, signed on the tool itself: never use a real person’s signature in an ad.
+
+**Primary text: Short**
+> Put your signature on a graphologist’s specimen sheet: its slant, baseline and rhythm, measured. Plus a practice
+> sheet made from your own signature, to print. Free, two minutes, and nothing is uploaded.
+
+**Primary text: Story**
+> When did you last really look at your signature?
+>
+> Sign on your phone (or photograph it on paper) and the free Signature Specimen Check records how you sign: the
+> slant, the baseline, the proportions, even how many times you lift the pen. You also get a practice sheet with
+> your own signature on handwriting guide lines.
+>
+> Everything happens on your phone. Nothing is uploaded.
+>
+> If you like, send the sheet to Pranav on WhatsApp for a free first look: three personal observations.
+>
+> The check records what can be measured; it does not assess personality or predict anything.
+
+**Primary text: New name** (for audiences around marriage or a name change)
+> A new name means a new signature. Before you sign it on every form, see how it looks on a specimen sheet, and
+> practise it on a sheet made from your own signature. Free, two minutes, nothing uploaded.
+
+| Field | Text |
+|---|---|
+| Headline | Free Signature Specimen Check |
+| Headline (alt) | Put your signature on the specimen sheet |
+| Description | Free · two minutes · nothing uploaded |
+| CTA button | Learn more |
+| URL | `https://YOUR-DOMAIN/tools/signature-check` |
+
+> Keep the wording observational. Never “find out what your signature says about you”, “a lucky signature” or “a
+> signature for success”: Meta rejects ads that imply personal attributes, and the tool does not make such claims.
+> Remind people in Stories to share only the **share-safe** sheet, never the full one, since a signature is personal.
+
+---
+
 ## Brand / launch ad (optional)
 
 Use the **launch carousel** (`03-carousel-launch/`) as a carousel ad to a broad audience, or as a retargeting ad to

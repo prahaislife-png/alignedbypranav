@@ -16,8 +16,8 @@ import {
 import { FinalCta } from "@/components/home/final-cta";
 import { StickyWhatsAppBar } from "@/components/whatsapp/sticky-whatsapp-bar";
 import { resolveWhatsApp } from "@/components/whatsapp/whatsapp-cta";
-import { WatchCheckTeaser } from "@/components/tools/watch-check/watch-check-teaser";
-import { watchCheck } from "@/data/watch-check";
+import { ToolTeaser } from "@/components/tools/tool-teaser";
+import { toolForService } from "@/data/free-tools";
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
@@ -40,11 +40,12 @@ export default async function ServicePage({ params }: PageProps<"/services/[slug
   const service = getService(slug);
   if (!service) notFound();
   const whatsapp = resolveWhatsApp(service);
+  const tool = toolForService(service.id);
 
   return (
     <>
       <ServiceHero service={service} />
-      {service.id === watchCheck.serviceId && <WatchCheckTeaser className="bg-paper-2" />}
+      {tool && <ToolTeaser tool={tool} className="bg-paper-2" />}
       <ServiceIntro service={service} />
       <ServiceExplores service={service} />
       <ServiceAudienceAndProcess service={service} />

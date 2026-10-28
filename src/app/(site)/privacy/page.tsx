@@ -74,17 +74,22 @@ export default function PrivacyPage() {
         you ask us to delete it sooner or the law requires us to keep it.
       </p>
 
-      <h2 id="watch-check">4. The free watch check</h2>
+      <h2 id="free-tools">4. The free tools (signature and watch checks)</h2>
       <p>
-        The <Link href="/tools/watch-check">Watch Specimen Check</Link> works entirely in your browser. The photo you choose is
-        opened, framed and measured on your own device and is never uploaded to, or stored by, this website or any other
-        service. The colours and answers you record exist only on your screen and in the specimen sheet image you create; they
-        are discarded when you leave or reload the page.
+        The <Link href="/tools/signature-check">Signature Specimen Check</Link> and the{" "}
+        <Link href="/tools/watch-check">Watch Specimen Check</Link> work entirely in your browser. The signature you draw or
+        photograph, and the photo of your watch, are processed on your own device and are never uploaded to, or stored by,
+        this website or any other service. The measurements and answers you record exist only on your screen and in the
+        images you create; they are discarded when you leave or reload the page.
       </p>
       <p>
-        If you save or share the specimen sheet, or send it to Pranav on WhatsApp, you decide where it goes, and section 3
-        applies to anything you send. If you allow analytics, we may record only that the check was started, completed or
-        saved, never the photo, the colours or your answers.
+        A signature is personal. Keep the full specimen sheet and the practice sheet private, and share only the
+        share-safe version, in which the signature is hidden. The checks are not forensic or authenticity checks.
+      </p>
+      <p>
+        If you save or share a sheet, or send it to Pranav on WhatsApp, you decide where it goes, and section 3 applies to
+        anything you send. If you allow analytics, we may record only that a check was started, completed or saved, and
+        how (drawn or photographed, downloaded, shared or printed), never the image, the measurements or your answers.
       </p>
 
       <h2>5. Children</h2>

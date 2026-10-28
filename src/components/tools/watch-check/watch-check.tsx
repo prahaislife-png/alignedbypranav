@@ -19,8 +19,8 @@ import { track } from "@/lib/analytics/track";
 import { WHATSAPP_FALLBACK_HREF, whatsappHref } from "@/lib/whatsapp";
 import { TrackedWhatsAppLink } from "@/components/whatsapp/tracked-whatsapp-link";
 import { WhatsAppIcon } from "@/components/whatsapp/whatsapp-icon";
-import { ChoiceGroup } from "./choice-group";
-import { Viewfinder } from "./viewfinder";
+import { ChoiceGroup } from "../choice-group";
+import { Viewfinder } from "../viewfinder";
 
 type Step = "photo" | "frame" | "details" | "result";
 type PickTarget = "strap" | "dial";

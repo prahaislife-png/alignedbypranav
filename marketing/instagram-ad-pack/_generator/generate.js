@@ -388,6 +388,42 @@ const toolStory = { w: 1080, h: 1920, html: `
     <div style="position:absolute;left:0;right:0;top:1500px;text-align:center">${toolPoints}</div>
   </div>` };
 
+// ------------------------------------------------------------------ free signature check (tool ads)
+// Both sheets are real output of the tool, from "Your Name" signed on screen (no real person's signature).
+const SIG_SHEET = `data:image/png;base64,${b64(path.join(HERE, "sig-example-sheet.png"))}`;
+const SIG_PRACTICE = `data:image/png;base64,${b64(path.join(HERE, "sig-example-practice.png"))}`;
+const paperCard = (src, w, ratio, rotate, extra = "") =>
+  `<div style="width:${w}px;height:${Math.round(w * ratio)}px;background:#fff url(${src}) center/cover;border:1.5px solid ${C.ink};box-shadow:14px 14px 0 ${C.ink};transform:rotate(${rotate}deg);${extra}"></div>`;
+const sigPoints = "free<br/>two minutes<br/>nothing is uploaded";
+
+const sigFeed = { w: 1080, h: 1350, html: `
+  <div class="canvas" style="width:1080px;height:1350px">
+    <div style="position:absolute;left:72px;right:72px;top:64px;display:flex;justify-content:space-between;align-items:flex-end">
+      ${wordmark(70)}
+      ${note("free tool", 24, "margin-bottom:14px")}
+    </div>
+    <h1 class="d" style="position:absolute;left:72px;right:72px;top:200px;font-size:92px;line-height:1.02">Put your signature on the <span class="i">specimen sheet.</span></h1>
+    <div style="position:absolute;left:72px;top:520px;width:380px;display:flex;flex-direction:column;gap:34px">
+      <p class="muted" style="font-size:31px;line-height:1.42">Its slant, baseline and rhythm, measured. Plus a practice sheet made from your own signature.</p>
+      <p class="note" style="font-size:23px;line-height:1.7;color:${C.muted}">${sigPoints}</p>
+    </div>
+    <div style="position:absolute;right:250px;top:560px">${paperCard(SIG_PRACTICE, 330, 1754 / 1240, -4)}</div>
+    <div style="position:absolute;right:72px;top:500px">${paperCard(SIG_SHEET, 420, 1.25, 3)}</div>
+    <div style="position:absolute;left:72px;bottom:72px">${btn("Try the free signature check", 30).replace(/<svg[\s\S]*?<\/svg>/, "")}</div>
+  </div>` };
+
+const sigStory = { w: 1080, h: 1920, html: `
+  <div class="canvas" style="width:1080px;height:1920px">
+    <div style="position:absolute;left:0;right:0;top:250px;display:flex;justify-content:center">${wordmark(84)}</div>
+    <div style="position:absolute;left:90px;right:90px;top:420px;text-align:center">
+      ${note("free tool · signature specimen check", 26)}
+      <h1 class="d" style="font-size:88px;line-height:1.03;margin-top:24px">Put your signature on the <span class="i">specimen sheet.</span></h1>
+    </div>
+    <div style="position:absolute;left:110px;top:860px">${paperCard(SIG_PRACTICE, 400, 1754 / 1240, -4)}</div>
+    <div style="position:absolute;right:110px;top:800px">${paperCard(SIG_SHEET, 500, 1.25, 3)}</div>
+    <div style="position:absolute;left:0;right:0;top:1520px;text-align:center"><p class="note" style="font-size:24px;color:${C.muted}">free · two minutes · nothing is uploaded</p></div>
+  </div>` };
+
 // ------------------------------------------------------------------ render
 const jobs = [];
 services.forEach((s, i) => {
@@ -405,6 +441,8 @@ jobs.push([`07-highlight-covers/profile-picture.png`, profilePhoto]);
 jobs.push([`07-highlight-covers/profile-picture-mark.png`, profileMark]);
 jobs.push([`08-free-watch-check/watch-check-feed.png`, toolFeed]);
 jobs.push([`08-free-watch-check/watch-check-story.png`, toolStory]);
+jobs.push([`09-free-signature-check/signature-check-feed.png`, sigFeed]);
+jobs.push([`09-free-signature-check/signature-check-story.png`, sigStory]);
 
 (async () => {
   const browser = await chromium.launch();

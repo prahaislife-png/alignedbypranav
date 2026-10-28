@@ -1,22 +1,27 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { GUIDE_RADIUS, clampFraming, drawFramed, type Framing } from "@/lib/watch-check/image";
+import { GUIDE_RADIUS, RECT_GUIDE, clampFraming, drawFramed, type Framing } from "@/lib/watch-check/image";
 
 const RENDER_SIZE = 720;
 
 /**
- * Square viewfinder with a red-pen dial guide. Drag (or pinch) to move and
- * zoom; arrow keys and +/– do the same from the keyboard.
+ * Square viewfinder with a red-pen guide: a circle for a watch dial, a wide
+ * frame for a signature. Drag (or pinch) to move and zoom; arrow keys and
+ * +/– do the same from the keyboard.
  */
 export function Viewfinder({
   photo,
   framing,
   onChange,
+  guide = "circle",
+  help = "Move and zoom until the dial just fills the red circle.",
 }: {
   photo: HTMLCanvasElement;
   framing: Framing;
   onChange: (f: Framing) => void;
+  guide?: "circle" | "rect";
+  help?: string;
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const boxRef = useRef<HTMLDivElement>(null);
@@ -96,6 +101,14 @@ export function Viewfinder({
   };
 
   const r = GUIDE_RADIUS * 100;
+  const rw = RECT_GUIDE.width * 100;
+  const rh = RECT_GUIDE.height * 100;
+  const shape =
+    guide === "circle" ? (
+      <circle cx="50" cy="50" r={r} />
+    ) : (
+      <rect x={50 - rw / 2} y={50 - rh / 2} width={rw} height={rh} />
+    );
   return (
     <div>
       <div
@@ -114,14 +127,20 @@ export function Viewfinder({
         <canvas ref={canvasRef} width={RENDER_SIZE} height={RENDER_SIZE} className="block h-full w-full" />
         <svg aria-hidden="true" viewBox="0 0 100 100" className="pointer-events-none absolute inset-0 h-full w-full">
           <defs>
-            <mask id="dial-guide-mask">
+            <mask id={`guide-mask-${guide}`}>
               <rect width="100" height="100" fill="white" />
-              <circle cx="50" cy="50" r={r} fill="black" />
+              <g fill="black">{shape}</g>
             </mask>
           </defs>
-          <rect width="100" height="100" fill="rgb(33 27 41 / 0.42)" mask="url(#dial-guide-mask)" />
-          <circle cx="50" cy="50" r={r} fill="none" stroke="var(--color-madder)" strokeWidth="0.5" strokeDasharray="2 1.6" />
-          <path d="M47 50h6M50 47v6" stroke="var(--color-madder)" strokeWidth="0.35" />
+          <rect width="100" height="100" fill="rgb(33 27 41 / 0.42)" mask={`url(#guide-mask-${guide})`} />
+          <g fill="none" stroke="var(--color-madder)" strokeWidth="0.5" strokeDasharray="2 1.6">
+            {shape}
+          </g>
+          {guide === "circle" ? (
+            <path d="M47 50h6M50 47v6" stroke="var(--color-madder)" strokeWidth="0.35" />
+          ) : (
+            <line x1={50 - rw / 2 + 2} x2={50 + rw / 2 - 2} y1={50 + rh / 4} y2={50 + rh / 4} stroke="var(--color-madder)" strokeWidth="0.3" strokeOpacity="0.6" />
+          )}
         </svg>
       </div>
       <label className="mt-4 flex items-center gap-4">
@@ -137,7 +156,7 @@ export function Viewfinder({
         />
       </label>
       <p id="viewfinder-help" className="mt-2 text-[0.875rem] text-muted">
-        Move and zoom until the dial just fills the red circle.
+        {help}
       </p>
     </div>
   );

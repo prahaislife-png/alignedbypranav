@@ -71,7 +71,7 @@ export const mainNavigation = [
   { label: "About Pranav", href: "/about" },
   { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },
-  { label: "Free watch check", href: "/tools/watch-check" },
+  { label: "Free tools", href: "/tools" },
 ] as const;
 
 export const legalNavigation = [

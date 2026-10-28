@@ -141,6 +141,37 @@ How to run it:
   `src/data/watch-check.ts`), the report’s format and price, and how many free first looks he can answer each week.
 - **Naming:** never call it “Wristwatch Analysis”, which is another practitioner’s trademark.
 
+## 5c. The free signature check: the main funnel
+
+The **Signature Specimen Check** (`/tools/signature-check`) is the lead magnet to put the most money behind: every
+adult has a signature, it takes two minutes, and people leave with two things they can keep. It feeds Pranav’s core
+service, Signature & Handwriting Analysis.
+
+| Step | What happens | Price |
+|---|---|---|
+| 1 · Specimen check | The visitor signs on screen or photographs a signature on paper; the site measures slant, baseline, proportions and (on screen) pen lifts, time and pace, on their phone, nothing uploaded | Free |
+| 2 · Practice sheet | A printable A4 sheet with their own signature on handwriting guide lines, slant guides at their angle and copies to trace | Free |
+| 3 · First look | They send the specimen sheet on WhatsApp; Pranav replies personally with three observations | Free, limited each week |
+| 4 · Signature & handwriting analysis | Pranav’s personal consultation, including signature refinement if they want it | Paid (Pranav sets the price) |
+
+How to run it:
+- **Promote it** with the `09-free-signature-check` creatives, ad copy §09 and Reel 9. Lead with it; the watch check
+  is the smaller, niche funnel.
+- **The “new name” angle** (marriage, a name change) is the strongest Indian hook: the tool has a “For a new name”
+  option, and the AD_COPY has a primary text for it. Keep it practical (“see it, practise it”), never “a lucky
+  signature”.
+- **The practice sheet is the upsell bridge.** Its footer reads “a refined signature, developed with you? ask pranav
+  vibhute”. Someone who practises a signature for a week is ready to talk about refining it.
+- **Answer first looks quickly** with a `/firstlook` quick reply: three short observations from the sheet, then “If
+  you’d like a full analysis, or help refining your signature, I can tell you how it works and the price.”
+- **Measure** sheets created (`tool_complete`) → saved (`tool_save`, incl. `print`) → first-look taps
+  (`whatsapp_click`, placement `signature_check_first_look`) → consultations sold (lead sheet).
+- **Before scaling:** Pranav should confirm his own signature checklist (it replaces the questions in
+  `src/data/signature-check.ts`), the consultation price, whether he offers signature refinement, and how many free
+  first looks he can answer each week.
+- **Safety:** the full sheet shows a real signature. The tool tells people to keep it private and share only the
+  share-safe version; Pranav should never repost a client’s full sheet.
+
 ## 6. WhatsApp is the shop counter
 
 Most enquiries are won or lost here, not in the ad.

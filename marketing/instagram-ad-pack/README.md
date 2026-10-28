@@ -15,6 +15,7 @@ an organic posting plan, and the campaign setup that turns ad spend into **real 
 | `06-quote-posts/` | 3 quote posts |
 | `07-highlight-covers/` | 8 Story Highlight covers (“about” uses Pranav’s photo) + two profile pictures: `profile-picture.png` (Pranav’s photo, recommended) and `profile-picture-mark.png` (handwritten “a” logo) |
 | `08-free-watch-check/` | Feed and Story ads for the free Watch Specimen Check, plus an example sheet to post |
+| `09-free-signature-check/` | Feed and Story ads for the free Signature Specimen Check, plus example specimen and practice sheets (“Your Name”) to post |
 | `_generator/` | The script that renders every image from the website’s fonts, illustrations and photo |
 | [`AD_COPY.md`](AD_COPY.md) | Primary text, headlines, CTAs, WhatsApp messages and links for every ad |
 | [`ORGANIC_PLAN.md`](ORGANIC_PLAN.md) | 4-week posting calendar, captions, hashtags, Stories and 8 Reel scripts |
