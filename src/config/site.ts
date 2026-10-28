@@ -22,6 +22,12 @@ function safeEmail(value: string | null): string | null {
  * Contact details come from environment variables (see .env.example)
  * so they are never copied from another business's website.
  */
+/**
+ * Pranav's WhatsApp Business number, used by every "Enquire" button.
+ * NEXT_PUBLIC_WHATSAPP_NUMBER (e.g. in Vercel) overrides it without a code change.
+ */
+const WHATSAPP_NUMBER = "+49 1512 5937315";
+
 export const site = {
   name: "Aligned by Pranav",
   tagline: "Clarity. Intention. Alignment.",
@@ -33,7 +39,7 @@ export const site = {
 
   contact: {
     /** International format, digits only once validated. See src/lib/whatsapp.ts. */
-    whatsappNumber: env.whatsappNumber,
+    whatsappNumber: env.whatsappNumber ?? WHATSAPP_NUMBER,
     email: safeEmail(env.contactEmail),
   },
 

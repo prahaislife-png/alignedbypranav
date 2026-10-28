@@ -45,7 +45,8 @@ npm run dev                 # 3. run locally at http://localhost:3000
 | `npm start`         | Serves the production build locally (after `build`)  |
 
 To try WhatsApp buttons locally, put a number in `.env.local`, e.g.
-`NEXT_PUBLIC_WHATSAPP_NUMBER=+91 98765 43210`. Without one, every WhatsApp button safely points to `/contact`.
+`NEXT_PUBLIC_WHATSAPP_NUMBER=+91 98765 43210`. Without one, the business number in `src/config/site.ts` is used; if that is
+removed or invalid, every WhatsApp button safely points to `/contact`.
 
 ---
 
@@ -56,7 +57,7 @@ commit, push to GitHub, and Vercel redeploys automatically (about a minute).
 
 | To change…                         | Edit                                     | Notes |
 | ---------------------------------- | ---------------------------------------- | ----- |
-| **WhatsApp number**                | Vercel env var `NEXT_PUBLIC_WHATSAPP_NUMBER` | International format. Redeploy after changing. |
+| **WhatsApp number**                | `src/config/site.ts` → `WHATSAPP_NUMBER`   | International format. The Vercel env var `NEXT_PUBLIC_WHATSAPP_NUMBER` overrides it (redeploy after changing). |
 | Contact email, Instagram, Facebook | Vercel env vars `NEXT_PUBLIC_CONTACT_EMAIL`, `NEXT_PUBLIC_INSTAGRAM_URL`, `NEXT_PUBLIC_FACEBOOK_URL` | Hidden on the site until set. |
 | **Pranav’s photograph**            | `src/data/pranav.ts` → `portrait`        | Put the file in `public/images/portrait/`, then set `{ src, alt, width, height }`. Use a real, approved photo only. |
 | **Biography**                      | `src/data/pranav.ts` → `shortBio`, `longBio`, `approach` | Set `bioApproved: true` once Pranav approves the wording. |
@@ -174,8 +175,8 @@ CI (GitHub Actions) runs typecheck, lint, tests and a production build on every 
 
 1. Sign in at [vercel.com](https://vercel.com) with GitHub → **Add New… → Project** → import `alignedbypranav`.
 2. Framework preset: **Next.js** (detected automatically). Leave build and output settings as default.
-3. **Environment Variables** (Production, and Preview if you want working WhatsApp buttons on previews):
-   `NEXT_PUBLIC_WHATSAPP_NUMBER` (essential), `NEXT_PUBLIC_SITE_URL`, and optionally
+3. **Environment Variables** (Production and Preview):
+   `NEXT_PUBLIC_SITE_URL`, and optionally `NEXT_PUBLIC_WHATSAPP_NUMBER` (overrides the number in `src/config/site.ts`),
    `NEXT_PUBLIC_CONTACT_EMAIL`, `NEXT_PUBLIC_INSTAGRAM_URL`, `NEXT_PUBLIC_FACEBOOK_URL`,
    `NEXT_PUBLIC_GA4_ID`, `NEXT_PUBLIC_META_PIXEL_ID`, `NEXT_PUBLIC_VERCEL_ANALYTICS`.
 4. **Deploy.** From then on, every push to `main` deploys to production and every other branch or pull

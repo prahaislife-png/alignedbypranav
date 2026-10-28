@@ -46,3 +46,10 @@ describe("serviceEnquiryMessage", () => {
     );
   });
 });
+
+describe("business number", () => {
+  it("is configured, so Enquire buttons open WhatsApp rather than the contact page", async () => {
+    const { whatsappHref } = await import("../whatsapp");
+    expect(whatsappHref("Hello")).toBe("https://wa.me/4915125937315?text=Hello");
+  });
+});

@@ -5,7 +5,7 @@ need information only Pranav or the cofounders can provide.
 
 ## 1. Business information (required)
 
-- [ ] **Business:** WhatsApp Business number → `NEXT_PUBLIC_WHATSAPP_NUMBER` in Vercel (Production and Preview).
+- [x] **Business:** WhatsApp Business number set in `src/config/site.ts` (+49 1512 5937315). `NEXT_PUBLIC_WHATSAPP_NUMBER` in Vercel overrides it if ever needed.
 - [ ] **Business:** Pranav’s approved portrait photograph → `public/images/portrait/` + `src/data/pranav.ts → portrait`.
       Until then an abstract “PV” monogram placeholder is shown.
 - [ ] **Business:** Pranav approves the biography (`shortBio`, `longBio`, `approach` in `src/data/pranav.ts`), then set `bioApproved: true`.
