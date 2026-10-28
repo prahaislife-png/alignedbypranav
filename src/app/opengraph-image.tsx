@@ -6,8 +6,8 @@ export const contentType = "image/png";
 
 export default function OpengraphImage() {
   return renderOgImage({
-    kicker: "Clarity · Intention · Alignment",
+    kicker: "clarity · intention · alignment",
     title: "Find meaning in the details.",
-    subtitle: "Personal consultations with Pranav Vibhute",
+    subtitle: "personal consultations with pranav vibhute",
   });
 }

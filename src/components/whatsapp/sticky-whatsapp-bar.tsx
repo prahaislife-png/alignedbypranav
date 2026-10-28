@@ -63,21 +63,21 @@ export function StickyWhatsAppBar({
     <div
       className={cn(
         "fixed inset-x-0 bottom-0 z-40 px-3 pt-3 pb-safe md:hidden",
-        "transition-[transform,opacity] duration-500 ease-[var(--ease-gentle)]",
+        "transition-[transform,opacity] duration-500 ease-[var(--ease-out)]",
         visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-full opacity-0",
       )}
       inert={!visible}
     >
-      <div className="flex items-center gap-3 rounded-full border border-gold/30 bg-ivory/95 py-1.5 pr-1.5 pl-5 shadow-[var(--shadow-lift)] backdrop-blur-md">
+      <div className="flex items-center gap-3 border border-ink bg-paper py-1.5 pr-1.5 pl-4 shadow-[4px_4px_0_0_var(--color-ink)]">
         <p className="min-w-0 flex-1 truncate text-[0.8125rem] leading-tight text-muted">
-          <span className="block truncate font-display text-[1.0625rem] text-plum">{context}</span>
+          <span className="block truncate font-display text-[1.0625rem] text-ink">{context}</span>
           with Pranav Vibhute
         </p>
         <TrackedWhatsAppLink
           href={href}
           external={external}
           eventProps={{ ...eventProps, cta_placement: "sticky_mobile" }}
-          className="btn btn-primary min-h-11 shrink-0 px-5 text-[0.875rem]"
+          className="btn shrink-0 min-h-11 bg-ink px-4 text-[0.875rem] text-paper"
         >
           <WhatsAppIcon className="size-4" />
           <span>{label}</span>

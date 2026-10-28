@@ -5,7 +5,7 @@ import { services } from "@/data/services";
 import { pageMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Portrait } from "@/components/ui/portrait";
-import { Diamond } from "@/components/ui/ornaments";
+import { ListMark } from "@/components/ui/ornaments";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { WhatsAppCta } from "@/components/whatsapp/whatsapp-cta";
 import { FinalCta } from "@/components/home/final-cta";
@@ -43,17 +43,16 @@ export default function AboutPage() {
             <Portrait priority />
           </div>
           <div className="lg:col-span-6 lg:col-start-7 lg:pt-8">
-            <p className="eyebrow flex items-center gap-3">
-              <span aria-hidden="true" className="h-px w-8 bg-gold" />
-              About
+            <p className="eyebrow">
+              <span aria-hidden="true">§ </span>about
             </p>
             <h1 id="page-title" className="display-xl mt-5">
               {pranav.name}
             </h1>
-            <p className="mt-4 font-display text-[1.5rem] text-gold-ink italic">{pranav.title}</p>
+            <p className="mt-4 font-mono text-[0.8125rem] text-madder lowercase">{pranav.title}</p>
             <div className="mt-8 space-y-5">
               {pranav.longBio.map((paragraph, i) => (
-                <p key={i} className={i === 0 ? "lead !text-charcoal" : "text-muted"}>
+                <p key={i} className={i === 0 ? "lead !text-ink" : "text-muted"}>
                   {paragraph}
                 </p>
               ))}
@@ -65,13 +64,13 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section aria-labelledby="approach-title" className="paper section-y bg-parchment">
+      <section aria-labelledby="approach-title" className="paper section-y bg-paper-2">
         <div className="container-page">
-          <SectionHeading id="approach-title" eyebrow="The approach" title="How Pranav works" align="center" />
-          <ol className="mt-14 grid gap-5 md:grid-cols-3">
+          <SectionHeading id="approach-title" eyebrow="The approach" title="How Pranav works" />
+          <ol className="mt-12 grid border-t border-ink md:grid-cols-3">
             {pranav.approach.map((item, i) => (
-              <li key={item.title} className="reveal rounded-[1.5rem] border border-line-soft bg-ivory p-8">
-                <p className="font-display text-[1.125rem] text-gold-ink italic">0{i + 1}</p>
+              <li key={item.title} className="reveal border-b border-line py-8 md:border-b-0 md:border-l md:px-8 md:first:border-l-0 md:first:pl-0">
+                <p className="font-mono text-[0.75rem] text-madder">0{i + 1}</p>
                 <h3 className="display-sm mt-3">{item.title}</h3>
                 <p className="mt-3 text-muted">{item.text}</p>
               </li>
@@ -89,18 +88,18 @@ export default function AboutPage() {
             intro="Pranav’s consultations draw on graphology and symbolic interpretation. It matters to us that you know exactly what to expect."
           />
           <div className="mt-14 grid gap-5 md:grid-cols-2">
-            <div className="rounded-[1.5rem] bg-sage-mist p-8">
+            <div className="bg-paper-2 p-8">
               <h3 className="display-sm">It is</h3>
               <ul className="mt-5 space-y-3">
                 {isList.map((item) => (
                   <li key={item} className="flex gap-3">
-                    <Diamond className="mt-[0.6rem] shrink-0 bg-sage" />
+                    <ListMark className="mt-[0.75rem]" />
                     {item}
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="rounded-[1.5rem] border border-line p-8">
+            <div className="border border-line p-8">
               <h3 className="display-sm">It isn’t</h3>
               <ul className="mt-5 space-y-3">
                 {isNotList.map((item) => (
@@ -110,7 +109,7 @@ export default function AboutPage() {
                   </li>
                 ))}
               </ul>
-              <Link href="/disclaimer" className="link-line mt-6 inline-block text-[0.9375rem] text-plum">
+              <Link href="/disclaimer" className="link-line mt-6 inline-block text-[0.9375rem] text-ink">
                 Read the consultation disclaimer
               </Link>
             </div>
@@ -127,8 +126,8 @@ export default function AboutPage() {
             {services.map((s) => (
               <li key={s.id} className="border-b border-line">
                 <Link href={`/services/${s.slug}`} className="group flex items-baseline gap-5 py-5">
-                  <span className="w-8 font-display text-[1rem] text-gold-ink italic">{s.number}</span>
-                  <span className="flex-1 font-display text-[1.5rem] leading-tight text-plum">{s.title}</span>
+                  <span className="w-8 font-mono text-[0.75rem] text-madder">{s.number}</span>
+                  <span className="flex-1 font-display text-[1.5rem] leading-tight text-ink">{s.title}</span>
                   <span aria-hidden="true" className="text-gold transition-transform duration-500 group-hover:translate-x-1">
                     →
                   </span>

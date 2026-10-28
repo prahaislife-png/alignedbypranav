@@ -6,7 +6,7 @@ import { ArrowLink } from "@/components/ui/link-button";
 
 export function FaqPreview() {
   return (
-    <section aria-labelledby="faq-title" className="paper section-y bg-parchment">
+    <section aria-labelledby="faq-title" className="section-y border-b border-line">
       <div className="container-page grid gap-12 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-4">
           <SectionHeading id="faq-title" eyebrow={home.faq.eyebrow} title={home.faq.title} />

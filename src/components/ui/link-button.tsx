@@ -30,7 +30,7 @@ export function LinkButton({
       {arrow && (
         <ArrowRight
           aria-hidden="true"
-          className="size-4 transition-transform duration-500 ease-[var(--ease-gentle)] group-hover:translate-x-1"
+          className="size-4 transition-transform duration-500 ease-[var(--ease-out)] group-hover:translate-x-1"
           strokeWidth={1.5}
         />
       )}
@@ -54,8 +54,8 @@ export function ArrowLink({
     <Link
       href={href}
       className={cn(
-        "group inline-flex items-center gap-2 text-[0.9375rem] font-medium",
-        tone === "plum" ? "text-plum" : "text-ivory",
+        "group inline-flex items-center gap-2 text-[1rem] font-bold",
+        tone === "plum" ? "text-ink" : "text-paper",
         className,
       )}
     >
@@ -63,7 +63,7 @@ export function ArrowLink({
       <ArrowRight
         aria-hidden="true"
         strokeWidth={1.5}
-        className="size-4 transition-transform duration-500 ease-[var(--ease-gentle)] group-hover:translate-x-1"
+        className="size-4 transition-transform duration-500 ease-[var(--ease-out)] group-hover:translate-x-1"
       />
     </Link>
   );

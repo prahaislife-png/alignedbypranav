@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import localFont from "next/font/local";
 import { isIndexable, siteUrl } from "@/config/env";
 import { site } from "@/config/site";
 import { AnalyticsManager } from "@/components/analytics/analytics-manager";
@@ -8,19 +8,33 @@ import { JsonLd } from "@/components/ui/json-ld";
 import { organizationJsonLd, personJsonLd } from "@/lib/seo";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
-  subsets: ["latin"],
-  // Only the weights the design uses: 400 and 500, upright and italic (four files).
-  weight: ["400", "500"],
-  style: ["normal", "italic"],
+/* Typefaces (all SIL Open Font License, files and licences in src/fonts):
+   BluuNext by Jean-Baptiste Morizot / Velvetyne – display
+   Apfel Grotezk by Collletttivo – text
+   Fragment Mono by Wei Huang – margin notes and annotations */
+const bluu = localFont({
+  variable: "--font-bluu",
   display: "swap",
+  src: [
+    { path: "../fonts/bluu-next-latin-700-normal.woff2", weight: "700", style: "normal" },
+    { path: "../fonts/bluu-next-latin-700-italic.woff2", weight: "700", style: "italic" },
+  ],
 });
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
+const apfel = localFont({
+  variable: "--font-apfel",
   display: "swap",
+  src: [
+    { path: "../fonts/apfel-grotezk-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "../fonts/apfel-grotezk-latin-700-normal.woff2", weight: "700", style: "normal" },
+  ],
+});
+
+const fragment = localFont({
+  variable: "--font-fragment",
+  display: "swap",
+  preload: false,
+  src: [{ path: "../fonts/fragment-mono-latin-400-normal.woff2", weight: "400", style: "normal" }],
 });
 
 export const metadata: Metadata = {
@@ -44,7 +58,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f8f5ee",
+  themeColor: "#f3f1eb",
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
@@ -52,7 +66,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${inter.variable} antialiased`}>
+    <html lang="en" className={`${bluu.variable} ${apfel.variable} ${fragment.variable} antialiased`}>
       <body className="flex min-h-dvh flex-col">
         {children}
         <ConsentBanner />

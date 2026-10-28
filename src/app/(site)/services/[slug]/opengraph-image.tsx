@@ -13,8 +13,8 @@ export default async function ServiceOpengraphImage({ params }: { params: Promis
   const { slug } = await params;
   const service = getService(slug);
   return renderOgImage({
-    kicker: service ? `Consultation No. ${service.number}` : "Aligned by Pranav",
+    kicker: service ? `consultation ${service.number}` : "aligned by pranav",
     title: service?.title ?? "Personal consultations",
-    subtitle: "with Pranav Vibhute",
+    subtitle: "with pranav vibhute · graphologist and alignment consultant",
   });
 }

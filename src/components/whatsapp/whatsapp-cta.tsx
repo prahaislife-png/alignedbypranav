@@ -53,7 +53,7 @@ export function WhatsAppCta({
     <TrackedWhatsAppLink
       href={target.href}
       external={target.external}
-      className={cn(variant === "text" ? "group inline-flex items-center gap-2 font-medium text-plum" : buttonClasses[variant], className)}
+      className={cn(variant === "text" ? "group inline-flex items-center gap-2 font-medium text-ink" : buttonClasses[variant], className)}
       eventProps={{
         cta_placement: placement,
         service_id: service?.id,

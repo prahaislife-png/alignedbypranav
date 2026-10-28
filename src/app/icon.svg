@@ -1,7 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#332b40"/>
-  <circle cx="32" cy="32" r="17" fill="none" stroke="#f8f5ee" stroke-width="2.4"/>
-  <path d="M32 9v46" stroke="#f8f5ee" stroke-width="2.4" stroke-linecap="round"/>
-  <path d="M21.5 38.5a12 12 0 0 0 21 0" fill="none" stroke="#cdb693" stroke-width="2.4" stroke-linecap="round"/>
-  <path d="M32 27.5l4.5 4.5-4.5 4.5-4.5-4.5z" fill="#cdb693"/>
+  <rect width="64" height="64" rx="10" fill="#211b29"/>
+  <line x1="7" x2="57" y1="36.0" y2="36.0" stroke="#a3352b" stroke-width="2"/>
+  <g transform="translate(17.10 36.00) scale(0.0690)"><path d="M495 -183C488.7 -174.5 471.8 -149.4 457 -132C442.2 -114.6 427 -95.5 406 -78.8C385 -62 353.5 -41.5 331 -31.5C308.5 -21.5 285.7 -13.6 271 -18.9C256.3 -24.1 245.7 -42.5 243 -63C240.3 -83.5 246.2 -106.8 255 -142C263.8 -177.2 292.3 -257.2 296 -274C299.7 -290.8 297 -264.5 277 -243C257 -221.5 210.6 -176 176 -145C141.4 -113.9 101.8 -77.7 69.3 -56.7C36.8 -35.7 3.2 -17.3 -18.9 -18.9C-40.9 -20.5 -56.7 -43.6 -63 -66.1C-69.3 -88.6 -73 -121.5 -56.7 -154C-40.4 -186.5 0.5 -231.5 34.6 -261C68.7 -290.5 115.4 -315.2 148 -331C180.6 -346.8 202.7 -351.8 230 -356C257.3 -360.2 296.3 -358.2 312 -356C327.7 -353.8 322 -345.2 324 -343" fill="none" stroke="#f3f1eb" stroke-width="60.9" stroke-linecap="round" stroke-linejoin="round"/></g>
 </svg>

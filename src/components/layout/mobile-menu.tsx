@@ -40,7 +40,7 @@ export function MobileMenu({
       <button
         type="button"
         onClick={open}
-        className="-mr-2 inline-flex size-12 items-center justify-center rounded-full text-plum transition-colors hover:bg-parchment lg:hidden"
+        className="-mr-2 inline-flex size-12 items-center justify-center text-ink transition-colors hover:text-madder lg:hidden"
         aria-label="Open menu"
         aria-haspopup="dialog"
       >
@@ -53,7 +53,7 @@ export function MobileMenu({
         onClose={() => {
           document.documentElement.style.overflow = "";
         }}
-        className="paper m-0 h-dvh max-h-none w-full max-w-none overflow-y-auto bg-ivory p-0 text-charcoal backdrop:bg-transparent open:flex open:flex-col lg:hidden"
+        className="paper m-0 h-dvh max-h-none w-full max-w-none overflow-y-auto bg-paper p-0 text-ink backdrop:bg-transparent open:flex open:flex-col lg:hidden"
       >
         <div className="container-page flex h-[4.25rem] shrink-0 items-center justify-between border-b border-line-soft">
           <Link href="/" onClick={close}>
@@ -62,7 +62,7 @@ export function MobileMenu({
           <button
             type="button"
             onClick={close}
-            className="-mr-2 inline-flex size-12 items-center justify-center rounded-full text-plum hover:bg-parchment"
+            className="-mr-2 inline-flex size-12 items-center justify-center text-ink hover:text-madder"
             aria-label="Close menu"
           >
             <X aria-hidden="true" className="size-6" strokeWidth={1.4} />
@@ -71,12 +71,12 @@ export function MobileMenu({
 
         <nav aria-label="Mobile" className="container-page flex-1 pt-8 pb-6">
           <p className="eyebrow">Consultations</p>
-          <ul className="mt-3 border-t border-line">
+          <ul className="mt-3 border-t border-ink">
             {services.map((s) => (
               <li key={s.href} className="border-b border-line">
                 <Link href={s.href} onClick={close} className="flex items-baseline gap-4 py-3.5">
-                  <span className="w-6 font-display text-[0.9375rem] text-gold-ink italic">{s.number}</span>
-                  <span className="font-display text-[1.375rem] leading-tight text-plum">{s.title}</span>
+                  <span className="w-6 font-mono text-[0.75rem] text-madder">{s.number}</span>
+                  <span className="font-display text-[1.3rem] leading-tight">{s.title}</span>
                 </Link>
               </li>
             ))}
@@ -84,7 +84,7 @@ export function MobileMenu({
           <ul className="mt-8 grid grid-cols-2 gap-x-4 gap-y-1">
             {mainNavigation.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} onClick={close} className="block py-2.5 text-[1.0625rem] text-charcoal">
+                <Link href={item.href} onClick={close} className="block py-2.5 text-[1.0625rem] text-ink">
                   {item.label}
                 </Link>
               </li>
@@ -92,7 +92,7 @@ export function MobileMenu({
           </ul>
         </nav>
 
-        <div className="container-page shrink-0 border-t border-line-soft bg-parchment/60 pt-5 pb-safe">
+        <div className="container-page shrink-0 border-t border-ink bg-paper-2 pt-5 pb-safe">
           <TrackedWhatsAppLink
             href={whatsapp.href}
             external={whatsapp.external}
@@ -103,7 +103,7 @@ export function MobileMenu({
             <span>Enquire on WhatsApp</span>
             {whatsapp.external && <span className="sr-only"> (opens WhatsApp)</span>}
           </TrackedWhatsAppLink>
-          <p className="mt-3 pb-1 text-center text-[0.8125rem] text-muted">Consultations led personally by Pranav Vibhute</p>
+          <p className="mt-3 pb-1 text-center font-mono text-[0.6875rem] text-muted lowercase">Consultations led personally by Pranav Vibhute</p>
         </div>
       </dialog>
     </>

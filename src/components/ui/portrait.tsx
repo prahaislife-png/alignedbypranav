@@ -1,12 +1,12 @@
 import Image from "next/image";
 import { pranav } from "@/data/pranav";
-import { ConcentricRings } from "./ornaments";
+import { GuideLines } from "./ornaments";
 import { cn } from "@/lib/cn";
 
 /**
- * Pranav's portrait in an arched frame. Until an approved photograph is set
- * in src/data/pranav.ts, an abstract monogram placeholder is shown – never
- * a generated likeness.
+ * Pranav's portrait. Until an approved photograph is set in
+ * src/data/pranav.ts, a typographic placeholder is shown – never a
+ * generated likeness.
  */
 export function Portrait({
   className,
@@ -22,8 +22,7 @@ export function Portrait({
   const photo = pranav.portrait;
   return (
     <figure className={cn("relative", className)}>
-      {!compact && <div aria-hidden="true" className="arch absolute -inset-3 border border-gold/45 sm:-inset-4" />}
-      <div className="arch relative isolate aspect-[4/5] w-full overflow-hidden bg-plum">
+      <div className="relative isolate aspect-[4/5] w-full overflow-hidden bg-night">
         {photo ? (
           <Image
             src={photo.src}
@@ -35,24 +34,23 @@ export function Portrait({
             className="h-full w-full object-cover"
           />
         ) : (
-          <div
-            role="img"
-            aria-label="Portrait of Pranav Vibhute – photograph to be added"
-            className="on-dark flex h-full w-full flex-col items-center justify-center"
-          >
-            <ConcentricRings tone="light" rings={5} className="absolute top-[56%] left-1/2 w-[150%] max-w-none -translate-1/2 opacity-50" />
-            <span
+          <div role="img" aria-label="Portrait of Pranav Vibhute – photograph to be added" className="on-dark relative h-full w-full">
+            {/* Initials sat on the guide lines: in BluuNext with leading-none the
+                baseline falls 0.84em down, which the 72% line of this box matches. */}
+            <div
               className={cn(
-                "relative font-display text-ivory italic",
-                compact ? "text-[2.25rem]" : "text-[clamp(4.5rem,9vw,7.5rem)]",
+                "absolute inset-x-0 font-display leading-none text-paper italic",
+                compact ? "bottom-[18%] text-[2.75rem]" : "bottom-[30%] text-[clamp(5rem,11vw,9rem)]",
               )}
             >
-              PV
-            </span>
+              <GuideLines tone="dark" xHeight={false} className="absolute inset-x-0 top-[-0.43em] h-[1.76em] w-full" />
+              <span className="relative ml-[8%]">PV</span>
+            </div>
+            {!compact && (
+              <span className="note absolute top-4 left-4 !text-gold-light">fig. — portrait</span>
+            )}
             {process.env.NODE_ENV !== "production" && !compact && (
-              <span className="absolute bottom-6 rounded-full border border-gold-light/50 px-3 py-1 text-[0.6875rem] tracking-[0.14em] text-gold-light uppercase">
-                Portrait placeholder
-              </span>
+              <span className="note absolute right-4 bottom-4 !text-gold-light">placeholder · add approved photo</span>
             )}
           </div>
         )}

@@ -24,10 +24,10 @@ export function LegalDocument({
           Last updated: <TBC value={site.legal.lastUpdated} label="date of legal review" />
         </p>
       </PageIntro>
-      <section className="paper border-t border-line-soft bg-parchment/50 py-16 lg:py-24">
+      <section className="bg-paper-2 py-16 lg:py-24">
         <div className="container-page">
           {!reviewed && (
-            <aside className="mx-auto mb-12 max-w-3xl rounded-2xl border border-gold/40 bg-ivory p-6 text-[0.9375rem]" aria-label="Draft notice">
+            <aside className="mx-auto mb-12 max-w-3xl border-l-2 border-madder bg-paper p-6 text-[0.9375rem]" aria-label="Draft notice">
               <p className="eyebrow">Draft for review</p>
               <p className="mt-2 text-muted">
                 This document is a draft template prepared for review by the business owners and a qualified legal
@@ -46,7 +46,7 @@ export function LegalDocument({
 export function TBC({ value, label }: { value: string | null | undefined; label: string }) {
   if (value) return <>{value}</>;
   return (
-    <mark className="rounded bg-gold-light/40 px-1.5 py-0.5 text-[0.95em] text-plum">
+    <mark className="bg-madder/10 px-1.5 py-0.5 font-mono text-[0.85em] text-madder">
       [To be confirmed: {label}]
     </mark>
   );

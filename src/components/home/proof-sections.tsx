@@ -16,7 +16,7 @@ export function RealExamples() {
         <SectionHeading id="examples-title" eyebrow="Real examples" title="Work, shared with permission" />
         <ul className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {examples.map((example) => (
-            <li key={example.title} className="overflow-hidden rounded-[1.5rem] border border-line-soft bg-ivory">
+            <li key={example.title} className="overflow-hidden border border-line-soft bg-paper">
               <Image
                 src={example.image.src}
                 alt={example.image.alt}
@@ -46,16 +46,16 @@ export function Testimonials() {
   const items = publishableTestimonials();
   if (items.length === 0) return null;
   return (
-    <section aria-labelledby="testimonials-title" className="paper section-y bg-parchment">
+    <section aria-labelledby="testimonials-title" className="paper section-y bg-paper-2">
       <div className="container-page">
         <SectionHeading id="testimonials-title" eyebrow="In their words" title="From people Pranav has consulted" align="center" />
         <ul className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {items.map((t) => (
-            <li key={t.quote} className="flex flex-col rounded-[1.5rem] bg-ivory p-8">
-              <span aria-hidden="true" className="font-display text-[4rem] leading-none text-gold">
+            <li key={t.quote} className="flex flex-col bg-paper p-8">
+              <span aria-hidden="true" className="font-display text-[4rem] leading-none text-madder">
                 “
               </span>
-              <blockquote className="-mt-4 font-display text-[1.375rem] leading-snug text-plum">{t.quote}</blockquote>
+              <blockquote className="-mt-4 font-display text-[1.375rem] leading-snug text-ink">{t.quote}</blockquote>
               <p className="mt-auto pt-6 text-[0.875rem] text-muted">
                 {t.attribution}
                 {t.serviceId && <> · {getService(t.serviceId)?.shortTitle}</>}

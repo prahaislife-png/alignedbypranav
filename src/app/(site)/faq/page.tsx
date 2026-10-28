@@ -25,7 +25,7 @@ export default function FaqPage() {
         intro="Answers to common questions about consultations with Pranav. If yours isn’t here, ask on WhatsApp."
       />
 
-      <section aria-labelledby="general-faq" className="paper section-y bg-parchment">
+      <section aria-labelledby="general-faq" className="paper section-y bg-paper-2">
         <div className="container-page grid gap-10 lg:grid-cols-12">
           <h2 id="general-faq" className="display-md lg:col-span-4">
             General
@@ -45,7 +45,7 @@ export default function FaqPage() {
               .map((service) => (
                 <div key={service.id} className="grid gap-6 lg:grid-cols-12 lg:gap-10">
                   <div className="lg:col-span-4">
-                    <p className="font-display text-[1rem] text-gold-ink italic">No. {service.number}</p>
+                    <p className="font-mono text-[0.75rem] text-madder">No. {service.number}</p>
                     <h3 className="display-sm mt-1">
                       <Link href={`/services/${service.slug}`} className="link-line">
                         {service.title}

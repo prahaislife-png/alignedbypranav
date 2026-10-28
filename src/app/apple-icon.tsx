@@ -1,18 +1,18 @@
 import { ImageResponse } from "next/og";
+import { handwriting } from "@/components/brand/handwriting-data";
 
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 
-/** Home-screen icon: the alignment mark on midnight plum. */
+/** Home-screen icon: a handwritten "a" on a red baseline, on the night page. */
 export default function AppleIcon() {
+  const { d, viewBox } = handwriting.a;
   return new ImageResponse(
     (
-      <div style={{ width: "100%", height: "100%", display: "flex", background: "#332b40" }}>
-        <svg width="180" height="180" viewBox="0 0 64 64">
-          <circle cx="32" cy="32" r="17" fill="none" stroke="#f8f5ee" strokeWidth="1.8" />
-          <path d="M32 9v46" stroke="#f8f5ee" strokeWidth="1.8" strokeLinecap="round" />
-          <path d="M21.5 38.5a12 12 0 0 0 21 0" fill="none" stroke="#cdb693" strokeWidth="1.8" strokeLinecap="round" />
-          <path d="M32 28l4 4-4 4-4-4z" fill="#cdb693" />
+      <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", background: "#211b29", position: "relative" }}>
+        <div style={{ position: "absolute", left: 22, right: 22, top: 104, height: 4, background: "#a3352b", display: "flex" }} />
+        <svg width="132" height="87" viewBox={viewBox} style={{ marginTop: -12 }}>
+          <path d={d} fill="none" stroke="#f3f1eb" strokeWidth="44" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </div>
     ),

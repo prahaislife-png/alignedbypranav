@@ -1,3 +1,4 @@
+import { Handwriting } from "./handwriting";
 import { cn } from "@/lib/cn";
 
 type WordmarkProps = {
@@ -7,50 +8,32 @@ type WordmarkProps = {
 };
 
 const sizes = {
-  // Byline margins clear the descender of the "g".
-  sm: { word: "text-[1.625rem]", by: "text-[0.5rem] tracking-[0.44em] mt-[0.5rem]" },
-  md: { word: "text-[1.9rem]", by: "text-[0.55rem] tracking-[0.46em] mt-[0.58rem]" },
-  lg: { word: "text-[2.75rem]", by: "text-[0.7rem] tracking-[0.5em] mt-[0.8rem]" },
+  sm: { word: "h-[2.15rem]", by: "text-[0.625rem]" },
+  md: { word: "h-[2.5rem]", by: "text-[0.6875rem]" },
+  lg: { word: "h-[4.25rem]", by: "text-[0.8125rem]" },
 };
 
 /**
- * The "aligned / BY PRANAV" wordmark. Set in Cormorant Garamond with the
- * tittle of the "i" replaced by a small gold diamond – the brand's single
- * point of alignment. Rendered as live text so it stays crisp and light.
+ * The wordmark is a signature: "aligned" written in one pen stroke, sitting
+ * on a red baseline, signed "by pranav" in the margin-note typeface.
  */
 export function Wordmark({ tone = "light", size = "md", className }: WordmarkProps) {
   const s = sizes[size];
+  const dark = tone === "dark";
   return (
-    <span className={cn("inline-flex flex-col items-start leading-none select-none", className)}>
-      <span
-        aria-hidden="true"
-        className={cn(
-          "font-display font-medium lowercase leading-[0.8] tracking-[-0.01em]",
-          s.word,
-          tone === "light" ? "text-plum" : "text-ivory",
-        )}
-      >
-        al
-        <span className="relative inline-block">
-          {"ı"}
-          <span
-            className={cn(
-              "absolute left-1/2 top-[-0.02em] size-[0.15em] -translate-x-1/2 rotate-45",
-              tone === "light" ? "bg-gold" : "bg-gold-light",
-            )}
-          />
-        </span>
-        gned
+    <span className={cn("relative inline-flex items-end gap-2.5 select-none", className)}>
+      <span className="relative">
+        <Handwriting className={cn("block w-auto", s.word, dark ? "text-paper" : "text-ink")} strokeWidth={size === "lg" ? 2 : 1.6} />
+        <span
+          aria-hidden="true"
+          className={cn("absolute right-[-0.35rem] bottom-[34%] left-[-0.35rem] h-px", dark ? "bg-gold" : "bg-madder/70")}
+        />
       </span>
       <span
         aria-hidden="true"
-        className={cn(
-          "font-sans font-medium uppercase pl-[0.08em]",
-          s.by,
-          tone === "light" ? "text-gold-ink" : "text-gold-light",
-        )}
+        className={cn("mb-[0.38em] font-mono leading-none whitespace-nowrap lowercase", s.by, dark ? "text-gold-light" : "text-madder")}
       >
-        By Pranav
+        by pranav
       </span>
       <span className="sr-only">Aligned by Pranav</span>
     </span>

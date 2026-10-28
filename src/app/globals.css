@@ -2,48 +2,45 @@
 
 /* ==================================================================
    ALIGNED BY PRANAV · DESIGN TOKENS
-   Edit brand colours here. Text tones ending in "-ink" are darker
-   versions tuned to pass WCAG AA on ivory and parchment.
+   Concept: a graphologist's working sheet. Cool paper, plum-black ink,
+   red-pen annotations, handwriting guide lines as the grid, and gold
+   ink on the plum "night" pages.
    ================================================================== */
 @theme {
-  --color-ivory: #f8f5ee;
-  --color-parchment: #ede5d9;
-  --color-parchment-deep: #e3d7c5;
+  /* Surfaces */
+  --color-paper: #f3f1eb;
+  --color-paper-2: #e7e3d8;
+  --color-paper-3: #dcd6c8;
   --color-plum: #332b40;
-  --color-plum-deep: #262030;
-  --color-plum-soft: #483d58;
-  --color-gold: #a88a62;
-  --color-gold-ink: #77603e;
-  --color-gold-light: #cdb693;
+  --color-night: #211b29;
+  --color-plum-soft: #463c55;
+  /* Ink */
+  --color-ink: #221b2b;
+  --color-muted: #5a5460;
+  --color-madder: #a3352b; /* red-pen annotations: 6:1 on paper */
+  --color-gold: #a88a62; /* ink on night pages, decorative strokes */
+  --color-gold-light: #d1bc98; /* text on night pages: 7:1 on plum */
   --color-sage: #6d7867;
-  --color-sage-ink: #59634f;
-  --color-sage-mist: #dfe2d7;
-  --color-charcoal: #302d31;
-  --color-muted: #5f5a61;
-  --color-line: #d9ccb8;
-  --color-line-soft: #e7ddcf;
+  /* Rules */
+  --color-line: #cfc8ba;
+  --color-line-soft: #ddd7ca;
 
-  --ease-gentle: cubic-bezier(0.22, 0.61, 0.36, 1);
-  --shadow-soft: 0 1px 2px rgb(51 43 64 / 0.04), 0 12px 32px -12px rgb(51 43 64 / 0.14);
-  --shadow-lift: 0 2px 4px rgb(51 43 64 / 0.05), 0 24px 48px -18px rgb(51 43 64 / 0.22);
+  --ease-pen: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 
   --breakpoint-xs: 25rem;
 }
 
 @theme inline {
-  --font-display: var(--font-cormorant), "Cormorant Garamond", Georgia, "Times New Roman", serif;
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: var(--font-bluu), "Iowan Old Style", Georgia, serif;
+  --font-sans: var(--font-apfel), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: var(--font-fragment), ui-monospace, "SFMono-Regular", Menlo, monospace;
 }
 
 /* ==================================================================
    BASE
    ================================================================== */
 @layer base {
-  :root {
-    /* Fine paper grain – a tiny pre-rendered noise tile (cheaper to paint than an SVG filter). */
-    --grain: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABAAgMAAADXB5lNAAAADFBMVEUzK0AAAAAAAAAAAABtWdxRAAAABHRSTlMEAAAAPPHxzQAAABJJREFUeNpjYBgFo2AUjALyAAAEQAABA/fDCwAAAABJRU5ErkJggg==");
-  }
-
   html {
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
@@ -57,13 +54,11 @@
   }
 
   body {
-    background-color: var(--color-ivory);
-    background-image: var(--grain);
-    color: var(--color-charcoal);
+    background-color: var(--color-paper);
+    color: var(--color-ink);
     font-family: var(--font-sans);
     font-size: 1.0625rem;
-    line-height: 1.7;
-    font-feature-settings: "ss01", "cv11";
+    line-height: 1.65;
   }
 
   h1,
@@ -71,8 +66,8 @@
   h3,
   h4 {
     font-family: var(--font-display);
-    color: var(--color-plum);
-    font-weight: 500;
+    color: var(--color-ink);
+    font-weight: 700;
     text-wrap: balance;
   }
 
@@ -81,14 +76,13 @@
   }
 
   ::selection {
-    background: var(--color-plum);
-    color: var(--color-ivory);
+    background: var(--color-madder);
+    color: var(--color-paper);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-gold-ink);
+    outline: 2px solid var(--color-madder);
     outline-offset: 3px;
-    border-radius: 4px;
   }
 
   .on-dark :focus-visible {
@@ -105,62 +99,69 @@
 
 /* ==================================================================
    TYPOGRAPHY
+   BluuNext (display) · Apfel Grotezk (text) · Fragment Mono (notes)
    ================================================================== */
 @utility display-xl {
   font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(2.875rem, 5.2vw + 1rem, 6rem);
-  line-height: 0.98;
-  letter-spacing: -0.018em;
+  font-weight: 700;
+  font-size: clamp(2.625rem, 4.6vw + 1rem, 5.75rem);
+  line-height: 0.96;
+  letter-spacing: -0.025em;
 }
 
 @utility display-lg {
   font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(2.375rem, 3.2vw + 1rem, 4.25rem);
-  line-height: 1.04;
-  letter-spacing: -0.012em;
+  font-weight: 700;
+  font-size: clamp(2.125rem, 2.8vw + 1rem, 4rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
 }
 
 @utility display-md {
   font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(1.875rem, 1.6vw + 1.1rem, 2.875rem);
-  line-height: 1.1;
-  letter-spacing: -0.008em;
+  font-weight: 700;
+  font-size: clamp(1.75rem, 1.4vw + 1.1rem, 2.625rem);
+  line-height: 1.06;
+  letter-spacing: -0.015em;
 }
 
 @utility display-sm {
   font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(1.5rem, 0.8vw + 1.15rem, 1.875rem);
-  line-height: 1.18;
+  font-weight: 700;
+  font-size: clamp(1.375rem, 0.6vw + 1.15rem, 1.75rem);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
 }
 
+/* Marginal note, in the graphologist's red pen. Replaces the usual uppercase "eyebrow". */
 @utility eyebrow {
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  @media (width >= 40rem) {
-    letter-spacing: 0.2em;
-  }
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  letter-spacing: 0;
   line-height: 1.4;
-  color: var(--color-gold-ink);
+  text-transform: lowercase;
+  color: var(--color-madder);
 }
 
-@utility lead {
-  font-size: clamp(1.125rem, 0.35vw + 1.04rem, 1.3125rem);
-  line-height: 1.65;
+@utility note {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.45;
   color: var(--color-muted);
 }
 
-/* Italic accent words inside display headings ("*details.*" in data). */
+@utility lead {
+  font-size: clamp(1.125rem, 0.3vw + 1.05rem, 1.3125rem);
+  line-height: 1.55;
+  color: var(--color-muted);
+}
+
+/* Italic accent words in headlines ("*details.*" in data): form, not colour, does the work. */
 @utility accent-italic {
   font-style: italic;
-  font-weight: 400;
-  color: var(--color-gold-ink);
+  font-weight: 700;
+  color: inherit;
 }
 
 /* ==================================================================
@@ -168,7 +169,7 @@
    ================================================================== */
 @utility container-page {
   width: 100%;
-  max-width: 78rem;
+  max-width: 80rem;
   margin-inline: auto;
   padding-inline: 1.25rem;
   @media (width >= 40rem) {
@@ -180,66 +181,70 @@
 }
 
 @utility section-y {
-  padding-block: 5rem;
+  padding-block: 4.5rem;
   @media (width >= 48rem) {
-    padding-block: 7rem;
+    padding-block: 6.5rem;
   }
   @media (width >= 80rem) {
-    padding-block: 8.5rem;
+    padding-block: 8rem;
   }
 }
 
-/* Arched top – a true semicircle on any portrait-proportioned box. */
-@utility arch {
-  border-top-left-radius: 9999px;
-  border-top-right-radius: 9999px;
-  border-bottom-left-radius: 0.375rem;
-  border-bottom-right-radius: 0.375rem;
+/* Handwriting-paper ruling: one rule per line of text, on the baseline. */
+@utility ruled {
+  background-image: linear-gradient(to bottom, transparent calc(100% - 1px), var(--color-line) calc(100% - 1px));
+  background-size: 100% 2.25rem;
+}
+
+/* Display headings on writing paper: a red-pen baseline under every line.
+   85.5% is BluuNext's baseline within a 0.96em line box (display-xl). */
+@utility baseline-ruled {
+  --rule-color: color-mix(in oklab, var(--color-madder) 60%, transparent);
+  background-image: linear-gradient(
+    to bottom,
+    transparent calc(85.5% - 1px),
+    var(--rule-color) calc(85.5% - 1px) 85.5%,
+    transparent 85.5%
+  );
+  background-size: 100% 0.96em;
+  background-repeat: repeat-y;
+}
+
+/* Exercise-book margin: a red rule with notes to its left (desktop). */
+@utility margin-rule {
+  @media (width >= 64rem) {
+    border-left: 1px solid color-mix(in oklab, var(--color-madder) 55%, transparent);
+    padding-left: 2.5rem;
+  }
 }
 
 @utility paper {
-  background-image: var(--grain);
-}
-
-/* Fine ruled separator with a central diamond. */
-@utility rule-ornament {
-  display: flex;
-  align-items: center;
-  gap: 0.875rem;
-  color: var(--color-gold);
-  &::before,
-  &::after {
-    content: "";
-    height: 1px;
-    flex: 1;
-    background: currentColor;
-    opacity: 0.45;
-  }
+  background-color: var(--color-paper);
 }
 
 /* ==================================================================
-   BUTTONS
+   BUTTONS – rectangular, ink-on-paper; no pills.
    ================================================================== */
 @utility btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.625rem;
+  gap: 0.75rem;
   min-height: 3.25rem;
-  padding-inline: 1.75rem;
-  border-radius: 9999px;
+  padding-inline: 1.5rem;
+  border-radius: 2px;
   font-family: var(--font-sans);
-  font-size: 0.9375rem;
-  font-weight: 500;
-  letter-spacing: 0.01em;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0;
   line-height: 1.2;
   text-align: center;
   transition:
-    background-color 0.35s var(--ease-gentle),
-    color 0.35s var(--ease-gentle),
-    border-color 0.35s var(--ease-gentle),
-    box-shadow 0.35s var(--ease-gentle),
-    transform 0.35s var(--ease-gentle);
+    background-color 0.3s var(--ease-out),
+    color 0.3s var(--ease-out),
+    box-shadow 0.3s var(--ease-out),
+    transform 0.3s var(--ease-out);
   -webkit-tap-highlight-color: transparent;
   &:active {
     transform: translateY(1px);
@@ -247,68 +252,137 @@
 }
 
 @utility btn-primary {
-  background-color: var(--color-plum);
-  color: var(--color-ivory);
-  box-shadow:
-    inset 0 0 0 1px rgb(205 182 147 / 0.18),
-    0 10px 24px -14px rgb(38 32 48 / 0.7);
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+  box-shadow: 4px 4px 0 0 var(--color-madder);
   &:hover {
-    background-color: var(--color-plum-soft);
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 0 var(--color-madder);
   }
 }
 
 @utility btn-outline {
   background-color: transparent;
-  color: var(--color-plum);
-  box-shadow: inset 0 0 0 1px rgb(51 43 64 / 0.28);
+  color: var(--color-ink);
+  box-shadow: inset 0 0 0 1.5px var(--color-ink);
   &:hover {
-    box-shadow: inset 0 0 0 1px var(--color-plum);
-    background-color: rgb(51 43 64 / 0.04);
+    background-color: var(--color-ink);
+    color: var(--color-paper);
   }
 }
 
 @utility btn-light {
-  background-color: var(--color-ivory);
-  color: var(--color-plum);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  box-shadow: 4px 4px 0 0 var(--color-gold);
   &:hover {
-    background-color: #fffdf8;
-    box-shadow: 0 0 0 6px rgb(248 245 238 / 0.12);
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 0 var(--color-gold);
   }
 }
 
 @utility btn-ghost-light {
-  color: var(--color-ivory);
-  box-shadow: inset 0 0 0 1px rgb(248 245 238 / 0.35);
+  color: var(--color-paper);
+  box-shadow: inset 0 0 0 1.5px rgb(243 241 235 / 0.5);
   &:hover {
-    box-shadow: inset 0 0 0 1px var(--color-ivory);
+    box-shadow: inset 0 0 0 1.5px var(--color-paper);
   }
 }
 
-/* Text link with a fine animated gold underline. */
+/* Text link underlined like a pen mark: the line redraws from the left on hover. */
 @utility link-line {
-  background-image: linear-gradient(currentColor, currentColor);
-  background-size: 100% 1px;
+  background-image: linear-gradient(var(--color-madder), var(--color-madder));
+  background-size: 100% 1.5px;
   background-position: 0 100%;
   background-repeat: no-repeat;
-  padding-bottom: 2px;
-  transition: background-size 0.45s var(--ease-gentle);
+  padding-bottom: 3px;
+  transition: background-size 0.5s var(--ease-pen);
   &:hover {
-    background-size: 0% 1px;
-    background-position: 100% 100%;
+    animation: underline-redraw 0.6s var(--ease-pen);
   }
 }
 
 /* ==================================================================
-   MOTION – subtle, and switched off for reduced-motion users.
+   MOTION
+   Pen-and-ink motion in plain CSS: no animation library, nothing that
+   blocks the main thread. Everything is static for reduced-motion users
+   and in browsers without scroll-driven animations.
    ================================================================== */
+@keyframes underline-redraw {
+  from {
+    background-size: 0% 1.5px;
+  }
+  to {
+    background-size: 100% 1.5px;
+  }
+}
+
+@keyframes ink {
+  from {
+    stroke-dashoffset: var(--ink-length, 1600);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes write {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes nib {
+  from {
+    offset-distance: 0%;
+    opacity: 1;
+  }
+  96% {
+    opacity: 1;
+  }
+  to {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(0.4em);
   }
   to {
     opacity: 1;
     transform: none;
+  }
+}
+
+@keyframes from-baseline {
+  from {
+    clip-path: inset(0 0 100% 0);
+    transform: translateY(0.35em);
+  }
+  to {
+    clip-path: inset(0 0 -0.3em 0);
+    transform: none;
+  }
+}
+
+@keyframes rule-in {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes rule-across {
+  from {
+    background-size: 0% 0.96em;
   }
 }
 
@@ -321,32 +395,72 @@
   }
 }
 
-@keyframes draw {
-  from {
-    stroke-dashoffset: var(--path-length, 1200);
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
 @media (prefers-reduced-motion: no-preference) {
+  /* Handwriting: a single path written with the pen (pathLength="1"). */
+  .write-on {
+    stroke-dasharray: 1;
+    animation: write var(--write-duration, 2.4s) var(--ease-pen) var(--write-delay, 0.2s) both;
+  }
+
+  /* The nib follows the same path as the ink. */
+  .pen-nib {
+    animation: nib var(--write-duration, 2.4s) var(--ease-pen) var(--write-delay, 0.2s) both;
+    offset-rotate: 0deg;
+  }
+
   .fade-in {
-    animation: fade 1.4s var(--ease-gentle) both;
+    animation: fade 0.9s var(--ease-out) both;
     animation-delay: var(--delay, 0ms);
   }
 
-  .draw-path {
-    stroke-dasharray: var(--path-length, 1200);
-    animation: draw 2.6s var(--ease-gentle) both;
-    animation-delay: var(--delay, 300ms);
+  /* Baseline rules drawn across with the pen after load. */
+  .rule-written {
+    animation: rule-across 1.4s var(--ease-pen) 0.25s both;
+  }
+
+  /* Load-time sequence used for marks drawn after the handwriting. */
+  .draw-late :is(path, line, circle, rect, polyline) {
+    stroke-dasharray: var(--ink-length, 1600);
+    animation: ink 1.2s var(--ease-pen) both;
+    animation-delay: var(--delay, 2.4s);
   }
 
   @supports (animation-timeline: view()) {
+    /* Illustrations ink themselves as they scroll into view. */
+    .ink-on-scroll :is(path, line, circle, rect, polyline, ellipse) {
+      stroke-dasharray: var(--ink-length, 1600);
+      animation: ink linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 45%;
+    }
+
+    /* Headlines rise from their baseline. */
+    .from-baseline {
+      animation: from-baseline linear both;
+      animation-timeline: view();
+      animation-range: entry 5% entry 70%;
+    }
+
     .reveal {
       animation: rise linear both;
       animation-timeline: view();
-      animation-range: entry 0% entry 45%;
+      animation-range: entry 0% entry 50%;
+    }
+
+    /* Rules are drawn across as they arrive. */
+    .rule-in {
+      transform-origin: left;
+      animation: rule-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 40%;
+    }
+
+    /* A connector that draws with the reader's scroll through a section. */
+    .scroll-ink {
+      stroke-dasharray: 1;
+      animation: write linear both;
+      animation-timeline: view();
+      animation-range: entry 30% exit 70%;
     }
   }
 }
@@ -360,13 +474,13 @@
    LEGAL DOCUMENTS
    ================================================================== */
 .legal-prose {
-  color: var(--color-charcoal);
+  color: var(--color-ink);
   font-size: 1rem;
   line-height: 1.75;
 }
 .legal-prose h2 {
-  font-size: clamp(1.625rem, 1vw + 1.2rem, 2.125rem);
-  line-height: 1.15;
+  font-size: clamp(1.5rem, 1vw + 1.1rem, 2rem);
+  line-height: 1.12;
   margin-top: 3.25rem;
   margin-bottom: 1rem;
   scroll-margin-top: 7rem;
@@ -375,7 +489,7 @@
   margin-top: 0;
 }
 .legal-prose h3 {
-  font-size: 1.375rem;
+  font-size: 1.25rem;
   margin-top: 2rem;
   margin-bottom: 0.5rem;
 }
@@ -386,18 +500,18 @@
 }
 .legal-prose ul {
   padding-left: 1.25rem;
-  list-style: disc;
+  list-style: square;
 }
 .legal-prose li {
   margin-top: 0.375rem;
 }
 .legal-prose li::marker {
-  color: var(--color-gold);
+  color: var(--color-madder);
 }
 .legal-prose a {
-  color: var(--color-plum);
+  color: var(--color-ink);
   text-decoration: underline;
-  text-decoration-color: var(--color-gold);
+  text-decoration-color: var(--color-madder);
   text-underline-offset: 3px;
 }
 .legal-prose table {
@@ -413,8 +527,10 @@
   border-bottom: 1px solid var(--color-line);
 }
 .legal-prose th {
-  font-weight: 600;
-  color: var(--color-plum);
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: var(--color-madder);
 }
 .legal-prose .table-wrap {
   overflow-x: auto;

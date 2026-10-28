@@ -2,10 +2,10 @@ import type { LandingPage, Service } from "@/types/content";
 import { pranav } from "@/data/pranav";
 import { publishableExamples, publishableTestimonials } from "@/data/testimonials";
 import { resolveLandingCopy } from "@/data/landing-pages";
-import { ArchVisual } from "@/components/ui/arch-visual";
+import { Specimen } from "@/components/ui/specimen";
 import { FaqList } from "@/components/ui/faq-list";
 import { ArrowLink } from "@/components/ui/link-button";
-import { Diamond } from "@/components/ui/ornaments";
+import { ListMark } from "@/components/ui/ornaments";
 import { Portrait } from "@/components/ui/portrait";
 import { TrackOnView } from "@/components/analytics/trackers";
 import { PricingPanel } from "@/components/services/pricing-panel";
@@ -28,22 +28,20 @@ export function LandingPageView({ page, service, variantKey }: { page: LandingPa
   return (
     <>
       {/* 1 · Immediate relevance */}
-      <section aria-labelledby="lp-title" className="relative overflow-hidden">
+      <section aria-labelledby="lp-title" className="relative overflow-hidden border-b border-line">
         <div className="container-page grid items-center gap-12 pt-6 pb-14 sm:pt-10 lg:grid-cols-12 lg:gap-10 lg:pt-16 lg:pb-24">
           <div className="lg:col-span-7">
             <div className="flex items-center gap-4">
-              <ArchVisual visual={copy.heroVisual} outline={false} sizes="5rem" priority className="aspect-[4/5] w-[4.5rem] shrink-0 lg:hidden" />
+              <Specimen visual={copy.heroVisual} compact ink="load" sizes="5rem" priority className="aspect-[4/5] w-[4.25rem] shrink-0 rotate-[2deg] lg:hidden" />
               <p className="eyebrow">
-                Consultation with
-                <span className="mt-1 block font-display text-[1.25rem] tracking-normal text-plum normal-case">
-                  {pranav.name}
-                </span>
+                <span aria-hidden="true">§ </span>consultation with
+                <span className="mt-1 block font-display text-[1.25rem] text-ink normal-case">{pranav.name}</span>
               </p>
             </div>
-            <h1 id="lp-title" className="display-lg mt-6 max-w-[18ch] lg:mt-8">
+            <h1 id="lp-title" className="display-lg mt-6 max-w-[17ch] lg:mt-8">
               {copy.headline}
             </h1>
-            <p className="lead mt-5 max-w-xl">
+            <p className="lead mt-5 max-w-xl !text-ink">
               {copy.description}
             </p>
             <div data-hero-cta className="mt-8">
@@ -55,29 +53,29 @@ export function LandingPageView({ page, service, variantKey }: { page: LandingPa
                 landingVariant={tracking.landingVariant}
                 className="w-full sm:w-auto"
               />
-              <p className="mt-3 text-[0.8125rem] text-muted">
+              <p className="mt-4 font-mono text-[0.75rem] text-muted lowercase">
                 Ask about the process and starting price. No commitment.
               </p>
             </div>
           </div>
           <div className="hidden lg:col-span-5 lg:block">
-            <ArchVisual visual={copy.heroVisual} animate priority className="fade-in aspect-[4/5]" />
+            <Specimen visual={copy.heroVisual} fig={service.number} caption={service.shortTitle} ink="load" priority className="aspect-[4/5] rotate-[1.5deg]" />
           </div>
         </div>
       </section>
 
       {/* 2 · What the consultation explores */}
-      <section aria-labelledby="lp-explores" className="paper bg-parchment py-16 lg:py-24">
+      <section aria-labelledby="lp-explores" className="border-b border-line bg-paper-2 py-16 lg:py-24">
         <div className="container-page">
-          <p className="eyebrow">{service.title}</p>
+          <p className="eyebrow"><span aria-hidden="true">§ </span>{service.title}</p>
           <h2 id="lp-explores" className="display-md mt-4">
             What the consultation explores
           </h2>
-          <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="mt-10 grid border-t border-ink sm:grid-cols-2 lg:grid-cols-4">
             {page.explorePoints.map((point, i) => (
-              <li key={point} className="flex gap-4 rounded-2xl border border-line-soft bg-ivory p-5 sm:flex-col sm:gap-6 sm:p-6">
-                <span className="font-display text-[1.125rem] text-gold-ink italic">0{i + 1}</span>
-                <span className="font-display text-[1.375rem] leading-snug text-plum">{point}</span>
+              <li key={point} className="flex gap-4 border-b border-line py-5 sm:flex-col sm:gap-4 sm:pr-6 lg:border-b-0 lg:border-r lg:px-6 lg:first:pl-0 lg:last:border-r-0">
+                <span className="pt-1 font-mono text-[0.75rem] text-madder">0{i + 1}</span>
+                <span className="font-display text-[1.375rem] leading-snug">{point}</span>
               </li>
             ))}
           </ul>
@@ -85,15 +83,15 @@ export function LandingPageView({ page, service, variantKey }: { page: LandingPa
       </section>
 
       {/* 3 · Meet your consultant */}
-      <section aria-labelledby="lp-consultant" className="py-16 lg:py-24">
+      <section aria-labelledby="lp-consultant" className="border-b border-line py-16 lg:py-24">
         <div className="container-page grid items-center gap-8 sm:grid-cols-[10rem_1fr] sm:gap-10 lg:grid-cols-[14rem_1fr] lg:gap-16">
           <Portrait compact sizes="14rem" className="w-32 sm:w-full" />
           <div>
-            <p className="eyebrow">Meet your consultant</p>
+            <p className="eyebrow"><span aria-hidden="true">§ </span>meet your consultant</p>
             <h2 id="lp-consultant" className="display-md mt-3">
               {pranav.name}
             </h2>
-            <p className="mt-1 font-display text-[1.25rem] text-gold-ink italic">{pranav.title}</p>
+            <p className="mt-2 font-mono text-[0.8125rem] text-madder lowercase">{pranav.title}</p>
             <p className="mt-5 max-w-2xl text-muted">{pranav.shortBio}</p>
             <ArrowLink href="/about" className="mt-6">
               About Pranav
@@ -103,16 +101,16 @@ export function LandingPageView({ page, service, variantKey }: { page: LandingPa
       </section>
 
       {/* 4 · How it works */}
-      <section aria-labelledby="lp-process" className="border-t border-line-soft py-16 lg:py-24">
+      <section aria-labelledby="lp-process" className="border-b border-line py-16 lg:py-24">
         <div className="container-page">
           <h2 id="lp-process" className="display-md">
             How it works
           </h2>
           <ol className="mt-10 grid gap-8 md:grid-cols-3">
             {service.process.map((step, i) => (
-              <li key={step.title} className="border-t border-gold/50 pt-6">
-                <p className="font-display text-[1.125rem] text-gold-ink italic">Step {i + 1}</p>
-                <h3 className="mt-2 font-display text-[1.5rem] leading-tight text-plum">{step.title}</h3>
+              <li key={step.title} className="border-t border-ink pt-6">
+                <p className="font-mono text-[0.75rem] text-madder">step {i + 1}</p>
+                <h3 className="mt-2 font-display text-[1.5rem] leading-tight">{step.title}</h3>
                 <p className="mt-2 text-[0.9375rem] text-muted">{step.description}</p>
               </li>
             ))}
@@ -121,7 +119,7 @@ export function LandingPageView({ page, service, variantKey }: { page: LandingPa
       </section>
 
       {/* 5 · Consultation details */}
-      <section aria-label="Consultation details" className="paper bg-parchment py-16 lg:py-24">
+      <section aria-label="Consultation details" className="border-b border-line bg-paper-2 py-16 lg:py-24">
         <div className="container-page max-w-3xl">
           <PricingPanel
             service={service}
@@ -140,7 +138,7 @@ export function LandingPageView({ page, service, variantKey }: { page: LandingPa
               {testimonials.length || examples.length ? "From Pranav’s work" : "Good to know"}
             </h2>
             {service.careNote && (
-              <p className="mt-6 rounded-2xl border border-sage/30 bg-sage-mist p-5 text-[0.9375rem] leading-relaxed text-charcoal">
+              <p className="mt-6 border-l-2 border-madder bg-paper-2 p-5 text-[0.9375rem] leading-relaxed text-ink">
                 {service.careNote}
               </p>
             )}
@@ -149,8 +147,8 @@ export function LandingPageView({ page, service, variantKey }: { page: LandingPa
             {testimonials.length > 0 && (
               <ul className="mb-10 grid gap-5 md:grid-cols-2">
                 {testimonials.map((t) => (
-                  <li key={t.quote} className="rounded-2xl bg-parchment p-6">
-                    <blockquote className="font-display text-[1.25rem] leading-snug text-plum">“{t.quote}”</blockquote>
+                  <li key={t.quote} className="bg-paper-2 p-6">
+                    <blockquote className="font-display text-[1.25rem] leading-snug text-ink">“{t.quote}”</blockquote>
                     <p className="mt-4 text-[0.875rem] text-muted">{t.attribution}</p>
                   </li>
                 ))}
@@ -160,9 +158,9 @@ export function LandingPageView({ page, service, variantKey }: { page: LandingPa
               <ul className="mb-10 space-y-3">
                 {examples.map((e) => (
                   <li key={e.title} className="flex gap-3 text-muted">
-                    <Diamond className="mt-[0.6rem] shrink-0" />
+                    <ListMark className="mt-[0.6rem] shrink-0" />
                     <span>
-                      <span className="text-plum">{e.title}.</span> {e.summary}
+                      <span className="text-ink">{e.title}.</span> {e.summary}
                     </span>
                   </li>
                 ))}

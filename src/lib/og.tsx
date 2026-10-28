@@ -1,56 +1,44 @@
 import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
+import { handwriting } from "@/components/brand/handwriting-data";
 
 export const ogSize = { width: 1200, height: 630 };
 
-const fontDir = join(process.cwd(), "src/assets/fonts");
+const fontDir = join(process.cwd(), "src/fonts");
 
 /** Branded social sharing image (Open Graph / Twitter), rendered at build time. */
 export async function renderOgImage({ kicker, title, subtitle }: { kicker: string; title: string; subtitle: string }) {
-  const [regular, italic] = await Promise.all([
-    readFile(join(fontDir, "cormorant-garamond-latin-500-normal.woff")),
-    readFile(join(fontDir, "cormorant-garamond-latin-500-italic.woff")),
+  const [display, mono] = await Promise.all([
+    readFile(join(fontDir, "bluu-next-latin-700-normal.woff")),
+    readFile(join(fontDir, "fragment-mono-latin-400-normal.woff")),
   ]);
+  const word = handwriting.aligned;
 
   return new ImageResponse(
     (
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          background: "#f8f5ee",
-          fontFamily: "Cormorant",
-          position: "relative",
-        }}
-      >
-        <svg width="760" height="760" viewBox="0 0 400 400" style={{ position: "absolute", right: -190, top: -65 }}>
-          {[196, 160, 124, 88].map((r, i) => (
-            <circle key={r} cx="200" cy="200" r={r} fill="none" stroke="#a88a62" strokeWidth="0.8" opacity={0.55 - i * 0.08} />
-          ))}
-          <path d="M200 0v400" stroke="#a88a62" strokeWidth="0.8" opacity="0.6" />
-          <path d="M200 192l8 8-8 8-8-8z" fill="#a88a62" />
-        </svg>
-        <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "64px 72px", width: 860 }}>
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <div style={{ fontSize: 54, color: "#332b40", lineHeight: 1 }}>aligned</div>
-            <div style={{ fontSize: 17, letterSpacing: 7, color: "#77603e", marginTop: 10 }}>BY PRANAV</div>
-          </div>
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <div style={{ fontSize: 22, letterSpacing: 5, color: "#77603e", textTransform: "uppercase" }}>{kicker}</div>
-            <div style={{ fontSize: 78, color: "#332b40", lineHeight: 1.02, marginTop: 18 }}>{title}</div>
-            <div style={{ fontSize: 34, color: "#77603e", fontStyle: "italic", marginTop: 22 }}>{subtitle}</div>
-          </div>
+      <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", background: "#f3f1eb", padding: "56px 72px", position: "relative" }}>
+        {/* exercise-book margin */}
+        <div style={{ position: "absolute", top: 0, bottom: 0, left: 48, width: 2, background: "#a3352b", opacity: 0.55, display: "flex" }} />
+        <div style={{ display: "flex", alignItems: "flex-end", gap: 16 }}>
+          <svg width="250" height="93" viewBox={word.viewBox}>
+            <path d={word.d} fill="none" stroke="#221b2b" strokeWidth="34" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          <div style={{ fontFamily: "Fragment", fontSize: 22, color: "#a3352b", marginBottom: 22 }}>by pranav</div>
         </div>
-        <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 14, background: "#332b40", display: "flex" }} />
+        <div style={{ display: "flex", flexDirection: "column", marginTop: "auto" }}>
+          <div style={{ fontFamily: "Fragment", fontSize: 24, color: "#a3352b", display: "flex" }}>{`§ ${kicker}`}</div>
+          <div style={{ fontFamily: "Bluu", fontSize: 92, color: "#221b2b", lineHeight: 0.95, letterSpacing: -2, marginTop: 18, maxWidth: 1000 }}>{title}</div>
+          <div style={{ display: "flex", height: 2, background: "#a3352b", marginTop: 26, width: 1056 }} />
+          <div style={{ fontFamily: "Fragment", fontSize: 24, color: "#5a5460", marginTop: 18 }}>{subtitle}</div>
+        </div>
       </div>
     ),
     {
       ...ogSize,
       fonts: [
-        { name: "Cormorant", data: regular, style: "normal", weight: 500 },
-        { name: "Cormorant", data: italic, style: "italic", weight: 500 },
+        { name: "Bluu", data: display, style: "normal", weight: 700 },
+        { name: "Fragment", data: mono, style: "normal", weight: 400 },
       ],
     },
   );

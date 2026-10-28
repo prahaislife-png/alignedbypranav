@@ -6,7 +6,7 @@ import { pranav } from "@/data/pranav";
 import { isWhatsAppConfigured } from "@/lib/whatsapp";
 import { pageMetadata } from "@/lib/seo";
 import { PageIntro } from "@/components/ui/page-intro";
-import { Diamond } from "@/components/ui/ornaments";
+import { ListMark } from "@/components/ui/ornaments";
 import { WhatsAppCta } from "@/components/whatsapp/whatsapp-cta";
 import { WhatsAppIcon } from "@/components/whatsapp/whatsapp-icon";
 import { InstagramIcon } from "@/components/layout/social-icons";
@@ -43,14 +43,14 @@ export default function ContactPage() {
         intro={`Enquiries are handled personally by ${pranav.name} on WhatsApp. Ask about any consultation, its process and its starting price.`}
       />
 
-      <section aria-label="Ways to get in touch" className="paper section-y bg-parchment">
+      <section aria-label="Ways to get in touch" className="paper section-y bg-paper-2">
         <div className="container-page grid gap-6 lg:grid-cols-12">
-          <div id="enquire" className="on-dark relative overflow-hidden rounded-[1.75rem] bg-plum p-8 text-ivory sm:p-12 lg:col-span-7">
+          <div id="enquire" className="on-dark relative overflow-hidden bg-plum p-8 text-paper sm:p-12 lg:col-span-7">
             <WhatsAppIcon className="size-10 text-gold-light" />
-            <h2 className="display-md mt-6 !text-ivory">Enquire on WhatsApp</h2>
+            <h2 className="display-md mt-6 !text-paper">Enquire on WhatsApp</h2>
             {whatsappReady ? (
               <>
-                <p className="mt-4 max-w-md text-ivory/75">
+                <p className="mt-4 max-w-md text-paper/75">
                   The button opens WhatsApp with a short message already written. You can edit it before sending.
                 </p>
                 <div data-hero-cta className="mt-8">
@@ -58,7 +58,7 @@ export default function ContactPage() {
                 </div>
               </>
             ) : (
-              <p className="mt-4 max-w-md text-ivory/75" role="status">
+              <p className="mt-4 max-w-md text-paper/75" role="status">
                 WhatsApp enquiries are being set up and will be available here shortly.
                 {site.contact.email ? " In the meantime, you are welcome to email." : ""}
               </p>
@@ -69,11 +69,11 @@ export default function ContactPage() {
             {site.contact.email && (
               <a
                 href={`mailto:${site.contact.email}`}
-                className="group flex items-center gap-5 rounded-[1.75rem] border border-line-soft bg-ivory p-7 transition-shadow hover:shadow-[var(--shadow-soft)]"
+                className="group flex items-center gap-5 border border-line-soft bg-paper p-7 transition-shadow hover:"
               >
-                <Mail aria-hidden="true" className="size-7 shrink-0 text-gold-ink" strokeWidth={1.3} />
+                <Mail aria-hidden="true" className="size-7 shrink-0 text-madder" strokeWidth={1.3} />
                 <span>
-                  <span className="block font-display text-[1.375rem] text-plum">Email</span>
+                  <span className="block font-display text-[1.375rem] text-ink">Email</span>
                   <span className="link-line text-[0.9375rem] text-muted">{site.contact.email}</span>
                 </span>
               </a>
@@ -83,21 +83,21 @@ export default function ContactPage() {
                 href={site.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-5 rounded-[1.75rem] border border-line-soft bg-ivory p-7 transition-shadow hover:shadow-[var(--shadow-soft)]"
+                className="group flex items-center gap-5 border border-line-soft bg-paper p-7 transition-shadow hover:"
               >
-                <InstagramIcon className="size-7 shrink-0 text-gold-ink" />
+                <InstagramIcon className="size-7 shrink-0 text-madder" />
                 <span>
-                  <span className="block font-display text-[1.375rem] text-plum">Instagram</span>
+                  <span className="block font-display text-[1.375rem] text-ink">Instagram</span>
                   <span className="text-[0.9375rem] text-muted">Follow Aligned by Pranav (opens in a new tab)</span>
                 </span>
               </a>
             )}
-            <div className="rounded-[1.75rem] border border-line-soft bg-ivory p-7">
-              <h2 className="font-display text-[1.375rem] text-plum">Good to include</h2>
+            <div className="border border-line-soft bg-paper p-7">
+              <h2 className="font-display text-[1.375rem] text-ink">Good to include</h2>
               <ul className="mt-4 space-y-2.5">
                 {include.map((item) => (
                   <li key={item} className="flex gap-3 text-[0.9375rem] text-muted">
-                    <Diamond className="mt-[0.55rem] shrink-0" />
+                    <ListMark className="mt-[0.7rem]" />
                     {item}
                   </li>
                 ))}
@@ -114,12 +114,12 @@ export default function ContactPage() {
               Enquire about a specific consultation
             </h2>
             <p className="mt-5 text-muted">Each link opens WhatsApp with a message about that consultation.</p>
-            <div className="mt-10 rounded-2xl bg-sage-mist p-6">
-              <h3 className="font-display text-[1.25rem] text-plum">Please don’t send in your first message</h3>
+            <div className="mt-10 bg-paper-2 p-6">
+              <h3 className="font-display text-[1.25rem] text-ink">Please don’t send in your first message</h3>
               <ul className="mt-3 space-y-2">
                 {avoid.map((item) => (
-                  <li key={item} className="flex gap-3 text-[0.9375rem] text-charcoal/85">
-                    <span aria-hidden="true" className="mt-[0.75rem] h-px w-3 shrink-0 bg-sage-ink" />
+                  <li key={item} className="flex gap-3 text-[0.9375rem] text-ink/85">
+                    <span aria-hidden="true" className="mt-[0.75rem] h-px w-3 shrink-0 bg-muted" />
                     {item}
                   </li>
                 ))}
@@ -130,8 +130,8 @@ export default function ContactPage() {
             {services.map((service) => (
               <li key={service.id} className="flex flex-col gap-3 border-b border-line py-5 sm:flex-row sm:items-center sm:justify-between">
                 <span className="flex items-baseline gap-4">
-                  <span className="font-display text-[1rem] text-gold-ink italic">{service.number}</span>
-                  <span className="font-display text-[1.375rem] leading-tight text-plum">{service.title}</span>
+                  <span className="font-mono text-[0.75rem] text-madder">{service.number}</span>
+                  <span className="font-display text-[1.375rem] leading-tight text-ink">{service.title}</span>
                 </span>
                 <WhatsAppCta
                   service={service}

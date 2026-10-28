@@ -56,7 +56,7 @@ export function ServicesMenu({ services }: { services: ServiceLink[] }) {
         aria-expanded={open}
         aria-controls={panelId}
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-[0.9375rem] text-charcoal transition-colors hover:text-plum"
+        className="inline-flex items-center gap-1.5 px-4 py-2 text-[0.9375rem] text-ink transition-colors hover:text-madder aria-expanded:text-madder"
       >
         Services
         <ChevronDown aria-hidden="true" strokeWidth={1.5} className={cn("size-4 transition-transform duration-300", open && "rotate-180")} />
@@ -65,22 +65,22 @@ export function ServicesMenu({ services }: { services: ServiceLink[] }) {
       <div
         id={panelId}
         hidden={!open}
-        className="absolute top-full left-1/2 mt-3 w-[46rem] -translate-x-1/2 rounded-2xl border border-gold/25 bg-ivory p-3 shadow-[var(--shadow-lift)]"
+        className="absolute top-full left-1/2 mt-3 w-[46rem] -translate-x-1/2 border border-ink bg-paper p-3 shadow-[6px_6px_0_0_var(--color-ink)]"
       >
         <ul className="grid grid-cols-2 gap-1">
           {services.map((s) => (
             <li key={s.href}>
-              <Link href={s.href} className="group flex gap-4 rounded-xl px-4 py-3.5 transition-colors hover:bg-parchment/70">
-                <span className="pt-1 font-display text-[0.9375rem] text-gold-ink italic">{s.number}</span>
+              <Link href={s.href} className="group flex gap-4 px-4 py-3.5 transition-colors hover:bg-paper-2">
+                <span className="pt-1.5 font-mono text-[0.75rem] text-madder">{s.number}</span>
                 <span>
-                  <span className="block font-display text-[1.25rem] leading-tight text-plum">{s.title}</span>
+                  <span className="block font-display text-[1.2rem] leading-tight">{s.title}</span>
                   <span className="mt-1 block text-[0.8125rem] leading-snug text-muted">{s.oneLiner}</span>
                 </span>
               </Link>
             </li>
           ))}
           <li>
-            <Link href="/services" className="flex h-full items-center gap-3 rounded-xl bg-parchment/60 px-4 py-3.5 text-[0.9375rem] font-medium text-plum transition-colors hover:bg-parchment">
+            <Link href="/services" className="flex h-full items-center gap-3 bg-ink px-4 py-3.5 text-[0.9375rem] font-bold text-paper transition-colors hover:bg-plum-soft">
               <span className="link-line">View all consultations</span>
               <span aria-hidden="true">→</span>
             </Link>

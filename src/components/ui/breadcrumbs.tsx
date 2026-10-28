@@ -9,22 +9,22 @@ export function Breadcrumbs({ items, className }: { items: Crumb[]; className?: 
   const all: Crumb[] = [{ name: "Home", path: "/" }, ...items];
   return (
     <>
-      <nav aria-label="Breadcrumb" className={cn("text-[0.8125rem] text-muted", className)}>
+      <nav aria-label="Breadcrumb" className={cn("font-mono text-[0.75rem] text-muted lowercase", className)}>
         <ol className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
           {all.map((item, i) => {
             const last = i === all.length - 1;
             return (
               <li key={item.path} className="flex items-center gap-2.5">
                 {last ? (
-                  <span aria-current="page" className="text-plum">
+                  <span aria-current="page" className="text-madder">
                     {item.name}
                   </span>
                 ) : (
                   <>
-                    <Link href={item.path} className="transition-colors hover:text-plum">
+                    <Link href={item.path} className="transition-colors hover:text-ink">
                       {item.name}
                     </Link>
-                    <span aria-hidden="true" className="inline-block size-1 rotate-45 bg-gold" />
+                    <span aria-hidden="true">/</span>
                   </>
                 )}
               </li>

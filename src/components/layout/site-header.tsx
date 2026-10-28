@@ -13,10 +13,10 @@ export function SiteHeader() {
   const serviceLinks = services.map((s) => ({ href: `/services/${s.slug}`, title: s.title, number: s.number, oneLiner: s.oneLiner }));
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line-soft/80 bg-ivory/90 backdrop-blur-md supports-[backdrop-filter]:bg-ivory/80">
+    <header className="sticky top-0 z-40 border-b border-ink/80 bg-paper/92 backdrop-blur-md supports-[backdrop-filter]:bg-paper/85">
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded-full focus:bg-plum focus:px-5 focus:py-3 focus:text-ivory"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:bg-ink focus:px-5 focus:py-3 focus:text-paper"
       >
         Skip to content
       </a>
@@ -36,7 +36,7 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-full px-4 py-2 text-[0.9375rem] text-charcoal transition-colors hover:text-plum"
+              className="px-4 py-2 text-[0.9375rem] text-ink transition-colors hover:text-madder"
             >
               {item.label}
             </Link>

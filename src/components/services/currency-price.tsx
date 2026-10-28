@@ -16,7 +16,7 @@ export function CurrencyPrice({ prices }: { prices: Partial<Record<Currency, str
   return (
     <div>
       {currencies.length > 1 && (
-        <div role="radiogroup" aria-labelledby={labelId} className="inline-flex rounded-full border border-line bg-ivory p-1">
+        <div role="radiogroup" aria-labelledby={labelId} className="inline-flex border border-ink">
           <span id={labelId} className="sr-only">
             Currency
           </span>
@@ -28,8 +28,8 @@ export function CurrencyPrice({ prices }: { prices: Partial<Record<Currency, str
               aria-checked={currency === c}
               onClick={() => setCurrency(c)}
               className={cn(
-                "min-h-9 rounded-full px-4 text-[0.8125rem] font-medium tracking-wide transition-colors",
-                currency === c ? "bg-plum text-ivory" : "text-muted hover:text-plum",
+                "min-h-9 px-4 font-mono text-[0.8125rem] transition-colors",
+                currency === c ? "bg-ink text-paper" : "text-muted hover:text-ink",
               )}
             >
               {c === "INR" ? "₹ INR" : "€ EUR"}
@@ -37,8 +37,8 @@ export function CurrencyPrice({ prices }: { prices: Partial<Record<Currency, str
           ))}
         </div>
       )}
-      <p className="mt-5 text-[0.8125rem] tracking-wide text-muted uppercase">Starting from</p>
-      <p className="font-display text-[3.25rem] leading-none text-plum" aria-live="polite">
+      <p className="mt-5 font-mono text-[0.75rem] text-madder lowercase">starting from</p>
+      <p className="font-display text-[3.5rem] leading-none" aria-live="polite">
         {prices[currency]}
       </p>
     </div>
