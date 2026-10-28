@@ -41,7 +41,7 @@ export function Specimen({
         {typeof visual === "string" ? (
           <div
             className={cn(
-              compact ? "absolute inset-[3%]" : "absolute inset-x-[9%] top-[5%] bottom-[2%]",
+              compact ? "absolute inset-[3%]" : "absolute inset-[4%]",
               ink === "scroll" && "ink-on-scroll",
               ink === "load" && "draw-late",
             )}

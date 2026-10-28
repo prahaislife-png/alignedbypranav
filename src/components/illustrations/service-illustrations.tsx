@@ -15,10 +15,26 @@ const FAINT = "var(--color-line)";
 
 type Props = { className?: string };
 
-function Frame({ children, className, label }: { children: React.ReactNode; className?: string; label: string }) {
+/**
+ * Each drawing sits a little differently on its canvas, so the frame crops a
+ * 300×375 window centred on the drawing's measured ink: every illustration is
+ * optically centred in its specimen sheet, whatever its shape.
+ */
+function Frame({
+  children,
+  className,
+  label,
+  center,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  label: string;
+  center: [x: number, y: number];
+}) {
+  const [cx, cy] = center;
   return (
     <svg
-      viewBox="0 0 320 400"
+      viewBox={`${cx - 150} ${cy - 187.5} 300 375`}
       fill="none"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -33,7 +49,7 @@ function Frame({ children, className, label }: { children: React.ReactNode; clas
 
 function Signature({ className }: Props) {
   return (
-    <Frame className={className} label="Line illustration of a fountain pen finishing a flowing signature">
+    <Frame center={[172, 230]} className={className} label="Line illustration of a fountain pen finishing a flowing signature">
       <g transform="rotate(-4 160 236)">
         <rect x="58" y="126" width="204" height="226" rx="3" fill={PAPER} stroke={FAINT} strokeWidth="1.2" />
         <path d="M80 312h160" stroke={FAINT} strokeWidth="1" />
@@ -59,7 +75,7 @@ function Signature({ className }: Props) {
 
 function Logo({ className }: Props) {
   return (
-    <Frame className={className} label="Line illustration of geometric logo construction lines">
+    <Frame center={[160, 225]} className={className} label="Line illustration of geometric logo construction lines">
       <path d="M44 220h232M160 104v232" stroke={FAINT} strokeWidth="1" strokeDasharray="3 5" />
       <path d="M78 138l164 164M242 138L78 302" stroke={FAINT} strokeWidth="1" strokeDasharray="3 5" />
       <circle cx="160" cy="220" r="82" stroke={INK} strokeWidth="1.5" />
@@ -100,7 +116,7 @@ function Wristwatch({ className }: Props) {
     };
   });
   return (
-    <Frame className={className} label="Line illustration of a wristwatch with hands at ten past ten">
+    <Frame center={[163, 211]} className={className} label="Line illustration of a wristwatch with hands at ten past ten">
       <path d="M128 162V74c0-8 6-14 14-14h36c8 0 14 6 14 14v88" fill={PAPER} stroke={INK} strokeWidth="1.5" />
       <path d="M136 156V78c0-4 3-8 8-8h32c5 0 8 4 8 8v78" stroke={ACCENT} strokeWidth="1" strokeDasharray="3 4" />
       <path d="M128 278v70c0 8 6 14 14 14h36c8 0 14-6 14-14v-70" fill={PAPER} stroke={INK} strokeWidth="1.5" />
@@ -128,7 +144,7 @@ function Wristwatch({ className }: Props) {
 
 function OfficeClock({ className }: Props) {
   return (
-    <Frame className={className} label="Line illustration of a wall clock aligned above a desk">
+    <Frame center={[160, 234]} className={className} label="Line illustration of a wall clock aligned above a desk">
       <path d="M40 300h240" stroke={FAINT} strokeWidth="1" />
       <path d="M160 266v38" stroke={ACCENT} strokeWidth="1.2" strokeDasharray="3 5" />
       <circle cx="160" cy="176" r="78" fill={PAPER} stroke={INK} strokeWidth="1.8" />
@@ -165,7 +181,7 @@ function PhoneNumber({ className }: Props) {
   const pos = (n: number) => ({ x: xs[n % 3], y: ys[Math.floor(n / 3)] });
   const pattern = [0, 4, 8, 7].map(pos);
   return (
-    <Frame className={className} label="Line illustration of a numeric keypad with a pattern connecting digits">
+    <Frame center={[160, 222]} className={className} label="Line illustration of a numeric keypad with a pattern connecting digits">
       <rect x="62" y="74" width="196" height="296" rx="30" fill={PAPER} stroke={INK} strokeWidth="1.6" />
       <path d="M142 92h36" stroke={INK} strokeWidth="1.4" />
       <path
@@ -201,7 +217,7 @@ function PhoneNumber({ className }: Props) {
 
 function Drawing({ className }: Props) {
   return (
-    <Frame className={className} label="Line illustration of a child's drawing of a sun, a house and a tree, with a crayon">
+    <Frame center={[162, 223]} className={className} label="Line illustration of a child's drawing of a sun, a house and a tree, with a crayon">
       <g transform="rotate(3 160 220)">
         <rect x="52" y="96" width="216" height="248" rx="3" fill={PAPER} stroke={FAINT} strokeWidth="1.2" />
       </g>
@@ -231,7 +247,7 @@ function Drawing({ className }: Props) {
 
 function VisionBoard({ className }: Props) {
   return (
-    <Frame className={className} label="Line illustration of a vision board with pinned cards">
+    <Frame center={[160, 216]} className={className} label="Line illustration of a vision board with pinned cards">
       <rect x="50" y="80" width="220" height="272" rx="4" fill="var(--color-paper-3)" stroke={INK} strokeWidth="1.5" />
       <g transform="rotate(-4 112 150)">
         <rect x="68" y="102" width="88" height="96" fill={PAPER} stroke={INK} strokeWidth="1.3" />
