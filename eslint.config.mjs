@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Standalone Node script that renders the Instagram ad pack (not part of the site).
+    "marketing/**/_generator/**",
   ]),
 ]);
 
